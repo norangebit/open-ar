@@ -70,6 +70,41 @@ La soluzione di Google, da progetto avveniristico, si è ritrovata ad essere lim
 Il mancato successo di *Tango* unito alla concorrenza di altri *SDK* per la realtà aumentata, tra cui *ARKit* di Apple[@apple:ARKitAppleDeveloper:2019], hanno convinto Google ad abbandonare completamente il progetto, trovandosi nella strana situazione di essere stata una delle prime ad investire in AR per smartphone, ma nonostante ciò essere indietro rispetto alla concorrenza.
 Le risorse investite, e le conoscenze accumulate con *Tango* hanno però permesso a Google di recuperare velocemente il terreno perso, così dalle ceneri di *Tango*[@kastrenakesGoogleProjectTango2017a] nasce *ARCore*, la piattaforma AR di Google[@googlear:ARCoreGoogleDeveloper:2019].
 
+## Principi di funzionamento
+
+Quando si parla di realtà aumentata, non si fa riferimento ad un'unica tecnologia, ma ad un vasto set di tecnologie.
+Attualmente gli approcci più utilizzati sono l'AR basato sul riconoscimento di un pattern, quelle basate sulla geolocalizzazione e l'AR *markerless*.
+
+### Marker based AR
+
+L'AR marker based, anche nota come recognition based, sfrutta un sensore fotografico per riconoscere un pattern già definito a priori.
+In base alla potenza della libreria utilizzata è possibile riconoscere QR-code, immagini bidimensionali, fino ad arrivare al riconoscimento di oggetti tridimensionali.
+Questo tipo di AR oltre a riconoscere il pattern deve essere in grado anche di capirene l'orientamento.
+L'efficacia oltre a dipendere dalla libreria utilizzata dipende anche dal dispositivo in uso, e dal tipo di marker utilizzato.
+Infatti condizione necessaria per ottenere risultati soddisfacenti è l'utilizzo di immagini ricche di punti caratteristici o, nel caso di riconoscimento di oggetti tridimensionali, di modelli molto dettagliati.
+
+Questa tecnologia è impiegata prevalentemente per aggiungere dei contenuti multimediali a libri o riviste(vedi fig. \ref{mbar}).
+Inoltre un impiego emergente è nel campo industriale, dove tramite opportuni modelli tre di macchinari e impianti è possibile realizzare manuali e guide interattivi.
+
+![Tipica applicazione di *marker based AR*](figures/marker_based_ar.png){#mbar width=300 height=200px}
+
+### Markerless AR
+
+L'AR markerless, realizzata mediante degli algoritmi di tipo SLAM(*Simultaneus Localization And Mapping*), è il modo più efficace per renderizzare oggetti virtuali nel mondo reale.
+Con questa soluzione non è necessario fornire all'algoritmo informazioni di base per il riconoscimento, infatti riesce a capire(*Localization*) e ricordare(*mapping*) ambienti su cui non ha altre informazioni, se non quelle catturate in real-time dai sensori.
+
+Le maggiori applicazioni di questa tecnologia si hanno nel campo commerciale, basti pensare alla possibilità di provare un mobile o un quadro nel salotto di casa.
+Altro campo in cui hanno riscosso notevole successo è quello ludico e ricreativo.
+
+### Location based AR
+
+La location based AR, effettua il riconoscimento dell'abbiente mediante sensori di posizionamento, sia out-door(es. GPL), sia in-door(es. Beacon Bluetooth[^beacon]).
+Generalmente questo tipo di AR non opera da sola, ma in simultanea ad una delle due tecnologie sopra citate.
+
+La maggiore applicazione di queste tecnologie si ha nella navigazione in realtà aumentata. Un esempio è la possibilità di vedere percorsi virtuali tra le strade delle città d'arte.
+
+![Tipica applicazione commerciale di *Location based AR*](figures/lbar.jpg){width=300 height=200px}
+
 [^cinema-4d]: Il concetto introdotto con *Sensorama* è usato tutt'oggi nei cinema 4D.
 
 [^olfactory]: Si è soliti associare l'AR principalmente a contenuti audio-video, ma in realtà è un settore che comprende tutti e cinque i sensi. Un'ipotetica tecnologia, che dato in input un piatto, riesce a farci percepite il sapore e l'odore andrebbe ascritta comunque al campo dell'AR.
@@ -81,3 +116,5 @@ Le risorse investite, e le conoscenze accumulate con *Tango* hanno però permess
 [^conduzione-ossea]: Tecnica che consente la conduzione del suono all'orecchio mediante le ossa del cranio.
 
 [^atap]: Divisione Advanced Technology And Projects di Google, precedentemente nota come Google X.
+
+[^beacon]: Trasmettitore Bluetooth in grado di trasmettere ripetutamente un codice alfanumerico univoco(UUID) che permette al dispositivo ricevente di localizzarsi in un ambiente chiuso.
