@@ -1,4 +1,4 @@
-# Capito 1
+# Introduzione
 
 ## Definizione
 
@@ -7,30 +7,51 @@ Mediante l'AR è possibile aggiungere, AR *costruttiva*, o rimuovere, *AR de-cos
 
 Risulta importate non fare confusione tra AR e VR(virtual reality), in quanto la prima parte dal mondo reale per aggiungerci del contenuto, mentre la seconda si pone l'obbiettivo di sostituire completamente il mondo reale con uno generato da un computer.
 
-Recentissima invece è l'MR(mixed reality), che può essere definita come un'AR potenziata, infatti in un'esperienza di MR l'utente oltre a percepire oggetti virtuali è in grado anche di interagire con essi.
+Recentissima, per applicazione, invece è l'MR(mixed reality), che può essere definita come un'AR potenziata, infatti in un'esperienza di MR l'utente oltre a percepire oggetti virtuali è in grado anche di interagire con essi.
 
-Volendo usare un paragone cinematografico, possiamo dire che in *Matrix*[@wachowski:Matrix:1999] viene usata la VR.
+Volendo elaborare una definizione di questi concetti, usando un paragone cinematografico, possiamo dire che in *The Matrix*[@wachowski:Matrix:1999] viene usata la VR.
 Invece in *Iron Man*[@favreau:IronMan:2008] quando *Tony Stark* è in volo e gli vengono mostrate a video informazioni aggiuntive sta usando l'AR, mentre quando interagisce con gli ologrammi sta usando tecnologie di mixed reality.
+
+Invece per una definizione più accurata possiamo ricorrere quella elaborata nel 1994 da *Paul Milgram* e da alcuni suoi colleghi, che introducono il concetto di ***reality-virtuality continuum***[@milgram:AugmentedRealityClass:1994].
+Nel loro lavoro hanno definito un segmento(vedi fig. \ref{rvc}) che ha ai propri estremi, da un lato l'ambiente reale, quello in cui viviamo, e dall'altro quello virtuale, completamente generato al computer. 
+Esattamente a metà strada da essi risiede la realtà mista, dove gli oggetti reali e virtuali convivono ed hanno pari valenza.
+
+Inoltre hanno definito due stati intermedi.
+
+- **Augmented Virtuality(AV)**:
+  Stato in cui alcuni elementi reali entrano in contatto con un mondo totalmente generato al computer.
+  Sebbene il termine AV sia quello meno conosciuto tra quelli citati, probabilmente tutti noi ne abbiamo avuto esperienza diretta.
+  Basti pensare a tecnologie come la *Nintendo Wii*, al *Kinect*, o ai più moderni giochi per smartphone basati su giroscopio e accelerometro, in cui il movimento(reale) del giocatore va ad influenzare il gioco.
+  
+- ***Augmented Reality***:
+  Stato in cui alcuni elementi virtuali coesistono nel mondo reale, andando ad ampliarne i confini.
+  
+![Reality Virtuality Continuum](figures/rvc.png){#rvc width=300 height=200px}
 
 ## Storia
 
-Possiamo datare la nascita dell'AR al 1968 quando *Ivan Sutherland* inventa il primo visore in grado di aggiungere elementi generati dal computer alla visione umana[@sutherland:HeadmountedThreedimensionalDisplay:1968].
+Possiamo datare la nascita dell'AR al 1962 quando *Morton Heilig* inventa una macchina chiamata *Sensorama*.
+Obbiettivo di questa macchina era estendere l'esperienza audio-visiva del cinema a tutti e cinque i senti.
+Durante la visione lo spettatore veniva immerso nell'azione grazie ad una visone 3D e all'audio stereofonico, inoltre poteva percepire il vento, le vibrazioni, generato tramite l'inclinazione della macchina, e addirittura gli odori.
+Nonostante le potenzialità della macchina[^cinema-4d], per mancanza di investitori, *Heilig* fu costretto ad abbandonare il suo progetto. 
+
+Una prima applicazione di AR *moderna* invece la troviamo nel 1968 quando *Ivan Sutherland* costruisce il primo visore(vedi fig. \ref{sutherland}) in grado di aggiungere elementi generati dal computer alla visione umana[@sutherland:HeadmountedThreedimensionalDisplay:1968].
 Mentre per il battesimo si dovrà attendere il 1990 quanto *Tom Caudell* introduce per la prima volta il termine *augmented reality*.
 
-![Apparecchiatura meccanica di sostegno del visore di Sutherland](src/figures/headmounted1.jpg){width=200 height=300px}
-
-![Vista frontale del visore di Sutherland](src/figures/headmounted2.jpg){width=300 height=200px}
+![Vista frontale del visore di Sutherland](figures/headmounted2.jpg){#sutherland width=300 height=200px}
 
 Sempre agli inizi degli anni 90 arriva anche la prima applicazione non accademica da parte dell'aviazione Americana.
 Tramite degli *head-up display*, ovvero un visore a sovrimpressione, venivano mostrate ai piloti delle informazioni aggiuntive, come velocità, quota, beccheggio, In questo modo il pilota non aveva la necessità di guardare gli strumenti dell'abitacolo e poteva concentrarsi sul pilotaggio del velivolo.
 
 A partire dalla fine degli anni 90 le tecnologie AR hanno trovato sempre maggiore applicazione nel campo dell'intrattenimento[@williamsii:HistoryAugmentedReality:2016].
-Infatti è proprio a cavallo tra secondo e terzo millennio, per la prima volta, durante una partita di NFL, la linea gialla del *primo down* viene generata da un computer.
+Infatti è proprio a cavallo tra secondo e terzo millennio, che per la prima volta, durante una partita di NFL, la linea gialla del *primo down* viene generata da un computer.
 
 Negli ultimi anni il fiorente progresso tecnologico ha consentito la diffusione sempre maggiore di apparecchi che permettono di fondere elementi virtuali con la realtà che li circondava.
-Uno dei prodotti più riusciti sono senza dubbio i *Google Glass*[@x:Glass:2019], presentati al grande pubblico durante il Google I/O del 2013, hanno la forma di comuni occhiali, ma con l'aggiunta di un'appendice che racchiude una fotocamera e un prisma usato per ottenere un *head-up display*.
+Uno dei prodotti più riusciti sono senza dubbio i *Google Glass*(vedi fig. \ref{googleglass})[@x:Glass:2019], presentati al grande pubblico durante il Google I/O del 2013, hanno la forma di comuni occhiali, ma con l'aggiunta di un'appendice che racchiude una fotocamera e un prisma usato per ottenere un *head-up display*.
 L'interazione può avvenire sia tramite un touchpad(in grado di riprodurre audio mediante conduzione ossea[^conduzione-ossea]) sia mediante comandi vocali.
 Grazie a quest'ultima caratteristica è possibile avere un'esperienza d'uso *hand-free* che li ha resi particolarmente utili in campo industriale e medico.
+
+![Google Glass Enterprise Edition](figures/google_glass.jpeg){#googleglass width=300 height=200px}
 
 La crescente diffusione degli smartphone e il progressivo aumento delle loro capacità di calcolo, ha reso queste nuove tecnologie accessibili al grande pubblico.
 In questo modo è scaturita una continua richiesta di contenuti AR, che ha spinto molti player del settore tecnologico ad investire in questo campo.
@@ -42,13 +63,21 @@ I *Tango devices* avevano la forma e le funzionalità di un normale smartphone, 
 Sebbene nel 2016 sia stata rimossa la dicitura *project* e sono stati commercializzati alcuni dispositivi di Lenovo e Asus, *Tango* non ha mai avuto grande successo né tra i produttori, né tra i consumatori.
 
 Il mancato successo è stato determinato da una parte dalla tendenza di Google a lanciare prodotti in eterna beta e dall'altra dal costante miglioramento degli algoritmi di visione digitale che permettevano di ottenere risultati soddisfacenti anche su smartphone con hardware standard, e quindi più a buon mercato.
-La soluzione di Google, da progetto avveniristico, si è ritrovata ad essere limitata ed acerba per il settore professional, in cui stavano emergendo soluzioni decisamente più potenti ed interessanti come *Microsoft HoloLens*[^mixed-reality][@microsoft:MicrosoftHoloLens:2019], ma troppo costosa e limitante per quello consumers.
+La soluzione di Google, da progetto avveniristico, si è ritrovata ad essere limitata ed acerba per il settore professional, in cui stavano emergendo soluzioni decisamente più potenti ed interessanti come *Microsoft HoloLens*[^mixed-reality](vedi fig. \ref{hololens})[@microsoft:MicrosoftHoloLens:2019], ma troppo costosa e limitante per quello consumers.
+
+![Microsoft HoloLens](figures/hololens.jpg){#hololens width=300 height=200px}
 
 Il mancato successo di *Tango* unito alla concorrenza di altri *SDK* per la realtà aumentata, tra cui *ARKit* di Apple[@apple:ARKitAppleDeveloper:2019], hanno convinto Google ad abbandonare completamente il progetto, trovandosi nella strana situazione di essere stata una delle prime ad investire in AR per smartphone, ma nonostante ciò essere indietro rispetto alla concorrenza.
 Le risorse investite, e le conoscenze accumulate con *Tango* hanno però permesso a Google di recuperare velocemente il terreno perso, così dalle ceneri di *Tango*[@kastrenakesGoogleProjectTango2017a] nasce *ARCore*, la piattaforma AR di Google[@googlear:ARCoreGoogleDeveloper:2019].
 
-[^olfactory]: Si è soliti associare l'AR principalmente a contenuti audio-video, ma in realtà è un settore che comprende tutti e cinque i sensi. Un'ipotetica tecnologia, che data in input un piatto, riesce a farci percepite il sapore e l'odore andrebbe ascritta comunque al campo dell'AR.
+[^cinema-4d]: Il concetto introdotto con *Sensorama* è usato tutt'oggi nei cinema 4D.
+
+[^olfactory]: Si è soliti associare l'AR principalmente a contenuti audio-video, ma in realtà è un settore che comprende tutti e cinque i sensi. Un'ipotetica tecnologia, che dato in input un piatto, riesce a farci percepite il sapore e l'odore andrebbe ascritta comunque al campo dell'AR.
+
 [^destructive]: Anche se meno conosciuta, la branca *de-costruttiva*, si pone l'obbiettivo di rimuovere del contenuto dal mondo reale. Una delle applicazioni più interessanti, sebbene ancora in fase sperimentale, è la realizzazione di un AD blocker per il mondo reale [@vanhemert:ARExperimentThat:2015]. L'AR de-costruttiva resta ad oggi ancora marginale, sia per una carenza di idee di applicazione, sia perché espone ancora di più l'utente ai pericoli dell'AR che già hanno portato a dei decessi. Mediaticamente più interessanti sono state le morti ascrivibili a *Pokémon GO* [@pokemongodeathtracker:PokemonGODeath:2019].
+
 [^mixed-reality]: Sebbene HoloLens sia un visore per la mixed reality, possiamo annoverarlo anche tra i dispositivi AR in quanto la realtà aumentata è una tecnologia abilitate per l'MR.
+
 [^conduzione-ossea]: Tecnica che consente la conduzione del suono all'orecchio mediante le ossa del cranio.
+
 [^atap]: Divisione Advanced Technology And Projects di Google, precedentemente nota come Google X.
