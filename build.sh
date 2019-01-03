@@ -1,1 +1,1 @@
-pandoc src/*.yaml src/*.md -o out/thesis.pdf
+pandoc src/*.md --bibliography src/bib.bib --resource-path src -o out/thesis.pdf
