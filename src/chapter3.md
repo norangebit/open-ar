@@ -1,18 +1,22 @@
 # Progetti di esempio
 
-Quando si vuole sviluppare un applicazione con ARCore e Sceneform è necessaria una configurazione iniziale.
+Prima di procedere allo sviluppo di applicazioni mediante ARCore e Sceneform sono necessarie alcune configurazioni iniziali.
 
 Per funzionare ARCore necessita di Android 7.0(API level 24) o superiore.
-Inoltre se si sta lavorando con un progetto con API level minore di 26 è necessario esplicitare il supporto a Java 8 aggiungendo al file `app/build.gradle` le seguenti linee.
+Inoltre se si sta lavorando con un progetto con API level minore di 26 è necessario esplicitare il supporto a Java 8 andando a modificare file `app/build.gradle`.
 
 ```gradle
-compileOptions {
-   sourceCompatibility JavaVersion.VERSION_1_8
-   targetCompatibility JavaVersion.VERSION_1_8
+android {
+  ...
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  ...
 }
 ```
 
-Un'altra modifica da fare al file è aggiunta della dipendenza di Sceneform.
+Un'altra modifica da fare al file è l'aggiunta della dipendenza di Sceneform.
 
 ```gradle
 implementation "com.google.ar.sceneform.ux:sceneform-ux:1.6.0"
@@ -23,14 +27,16 @@ Inoltre nell'AndroidManifest è necessario dichiarare l'utilizzo del permesso de
 ## Augmented images
 
 Il primo progetto è un classico esempio di AR marker based e ha lo scopo di riconosce un immagine data e sovrapporre ad essa un oggetto virtuale.
+Nel caso specifico si vuole riconoscere una foto del pianeta terra e sostituirvi un modello tridimensionale di essa.
 
 ### Aggiunta del modello
 
-//TODO
+Prima di tutto dobbiamo la cartella *"sampledata"*, il cui contenuto sarà usato solo in fase di progettazione, e aggiungere ad essa il modello tridimensionale[^format] che vogliamo usare.
+Per facilitare l'importazione del modello 3D usiamo il plug-in *Google Sceneform Tools*.
 
 ### Creazione del database
 
-La prima cosa da fare è creare un database con tutte le immagini che si desidera far riconosce all'applicazione. Questa operazione può essere svolta sia quando si sta sviluppando l'applicazione, sia runtime. Per questo progetto si è scelta la seconda opzione.
+La prima cosa da fare è la creazione di un database con tutte le immagini che si desidera far riconosce all'applicazione. Questa operazione può essere svolta sia quando si sta sviluppando l'applicazione, sia runtime. Per questo progetto si è scelta la seconda opzione.
 
 L'aggiunta dell'immagine al database avviene mediante la funzione `setupAugmentedImageDb`.
 
@@ -90,7 +96,7 @@ private fun detectAndPlaceAugmentedImage(frameTime: FrameTime) {
 ### Rendering del modello
 
 Il rendering del modello avviene attraverso la funzione `buildRenderable()`.
-Poiché quest'ultima è un operazione dispendiosa viene restituito un `Future`[^future] che racchiude il `Renderable` vero e proprio.
+Poiché quest'ultima è un operazione onerosa viene restituito un `Future`[^future] che racchiude il `Renderable` vero e proprio.
 L'interazione con quest'oggetto avviene attraverso una callback che è possibile specificare attraverso il metodo `thenAccept()`.
 
 ```kotlin
@@ -112,7 +118,7 @@ fun buildRenderable(
 
 ### Aggiunta dell'oggetto virtuale nella scena
 
-L'ultima cosa da compiere è l'aggiunta del modello renderizzato alla scena.
+L'ultima operazione da compiere è l'aggiunta del modello renderizzato alla scena.
 Questa operazione avviene attraverso la funzione `addTrasformableNodeToScene()`.
 
 ```kotlin
@@ -130,6 +136,7 @@ fun addTransformableNodeToScene(
 }
 ```
 
+[^format]: Attualmente sono supportati solo modelli OBJ, FBX e gLTF.
 [^camera]: Lo sviluppatore deve solo dichiarare l'utilizzo del permesso, la richiesta di concessione è gestita in automatico da Sceneform.
 [^arcore]: L'utilizzo di ARCore deve essere dichiarata in quanto non tutti i dispositivi supportano ARCore.
 [^future]: In informatica con il termine *future*, o *promise*, *delay* e *deferred*, si indica un tecnica che permette di sincronizzare l'esecuzione di un programma concorrente.
