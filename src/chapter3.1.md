@@ -1,60 +1,41 @@
-# Progetti di esempio
-
-Prima di procedere allo sviluppo di applicazioni mediante ARCore e Sceneform sono necessarie alcune configurazioni iniziali.
-
-Per funzionare ARCore necessita di Android 7.0(API level 24) o superiore.
-Inoltre se si sta lavorando con un progetto con API level minore di 26 è necessario esplicitare il supporto a Java 8 andando a modificare file `app/build.gradle`.
-
-```gradle
-android {
-  ...
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-  ...
-}
-```
-
-Un'altra modifica da fare al file è l'aggiunta della dipendenza di Sceneform.
-
-```gradle
-implementation "com.google.ar.sceneform.ux:sceneform-ux:1.6.0"
-```
-
-Inoltre nell'AndroidManifest è necessario dichiarare l'utilizzo del permesso della fotocamera[^camera] e l'utilizzo di ARCore[^arcore].
-
 ## Augmented images
 
-Il primo progetto è un classico esempio di AR marker based e ha lo scopo di riconosce un immagine data e sovrapporre ad essa un oggetto virtuale.
+Nel primo progetto d'esempio si è affrontato un classico problema di AR marker based, ovvero il riconoscimento di un'immagine preimpostata e il conseguente sovrapponimento di un oggetto virtuale.
 Nel caso specifico si vuole riconoscere una foto del pianeta terra e sostituirvi un modello tridimensionale di essa.
 
 ### Aggiunta del modello
 
-Prima di tutto dobbiamo la cartella *"sampledata"*, il cui contenuto sarà usato solo in fase di progettazione, e aggiungere ad essa il modello tridimensionale[^format] che vogliamo usare.
-Per facilitare l'importazione del modello 3D usiamo il plug-in *Google Sceneform Tools*.
+Il modello tridimensionale della terra è stato recuperato dal sito `poly.google.com`, che funge da repository per modelli 3D.
+La scelta del modello è stata dettata sia del formato[^format] in cui era disponibile, sia dalla licenza con cui veniva distribuito. 
+Una volta ottenuto il modello è stato salvato nella cartella *"sampledata"*, il cui contenuto sarà usato solo in fase di progettazione.
+
+L'importazione del modello all'interno del progetto di Android Studio è stato effettuato mediante l'utilizzo del plug-in *Google Sceneform Tools*, che si occupa sia di convertire il modello nel formato di Sceneform, sia di aggiornare il file `build.gradle` affinché sia incluso nell'APK[^apk] finale.
 
 ### Creazione del database
 
-La prima cosa da fare è la creazione di un database con tutte le immagini che si desidera far riconosce all'applicazione. Questa operazione può essere svolta sia quando si sta sviluppando l'applicazione, sia runtime. Per questo progetto si è scelta la seconda opzione.
+Il database contenete tutte le immagini che si desidera far riconosce all'applicazione, può essere creato sia a priori, sia a tempo di esecuzione.
+Per la prima soluzione Google mette a disposizione *The arcoreimag tool*, un software a linea di comando, che oltre a creare il database si occupa anche di valutare l'immagine.
 
-L'aggiunta dell'immagine al database avviene mediante la funzione `setupAugmentedImageDb`.
+Dato che nel caso specifico si vuole far riconoscere un'unica immagine si è optato per la generazione del database a runtime.
+In particolare quest'operazione avviene mediante la funzione `setupAugmentedImageDb`.
 
 ```kotlin
 private fun setupAugmentedImageDb (config: Config): Boolean {
-        val image = loadImage(IMAGE_FILE_NAME) ?: return false
+  val image = loadImage(IMAGE_FILE_NAME) ?: return false
 
-        val augmentedImageDb = AugmentedImageDatabase(session)
-        augmentedImageDb.addImage(IMAGE_NAME, image)
-        config.augmentedImageDatabase = augmentedImageDb
-        return true
+  val augmentedImageDb = AugmentedImageDatabase(session)
+  augmentedImageDb.addImage(IMAGE_NAME, image)
+  config.augmentedImageDatabase = augmentedImageDb
+  return true
 }
 ```
 
 ### Riconoscimento dell'immagine
 
-Sfortunatamente ARCore non permette di gestire il riconoscimento dell'immagine mediante un listener, per cui sarà compito dello sviluppatore controllare quando si è verificato un match.
-Per fare ciò si usa il metodo `addOnUpdateListener()` dell'oggetto `Scene`, che permette di eseguire del codice ogni qual volta che la scena viene aggiornata.
+Il riconoscimento dell'immagine non può avvenire mediate l'utilizzo di una callback in quanto ARCore non permette di registrare un listener all'evento.
+Risulta dunque evidente che la verifica dell'avvenuto match sarà delegata allo sviluppatore.
+
+Per fare ciò si è usato il metodo `addOnUpdateListener` dell'oggetto `Scene`, che permette di eseguire del codice ogni qual volta la scena viene aggiornata.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +47,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-Dove la funzione `detectAndPlaceAugmentedImage()` si occupa di verificare la presenza di un match e nel caso aggiungere l'oggetto virtuale alla scena.
+Dove la funzione `detectAndPlaceAugmentedImage` si occupa di verificare la presenza di un match e nel caso di un riscontro positivo, dell'aggiunta dell'oggetto virtuale alla scena.
 
 ```kotlin
 private fun detectAndPlaceAugmentedImage(frameTime: FrameTime) {
@@ -93,11 +74,13 @@ private fun detectAndPlaceAugmentedImage(frameTime: FrameTime) {
 }
 ```
 
+Il settaggio del flag `isModelAdded` al valore booleano di vero, si rende necessario al fine di evitare l'aggiunta incontrollata di nuovi modelli alla medesima immagine. 
+
 ### Rendering del modello
 
-Il rendering del modello avviene attraverso la funzione `buildRenderable()`.
+Il rendering del modello avviene attraverso la funzione `buildRenderable` che a sua volta chiama la funzione di libreria `ModelRenderable.builder()`.
 Poiché quest'ultima è un operazione onerosa viene restituito un `Future`[^future] che racchiude il `Renderable` vero e proprio.
-L'interazione con quest'oggetto avviene attraverso una callback che è possibile specificare attraverso il metodo `thenAccept()`.
+L'interazione con l'oggetto concreto avviene mediante una callback che è possibile specificare attraverso il metodo `thenAccept`.
 
 ```kotlin
 fun buildRenderable(
@@ -119,7 +102,9 @@ fun buildRenderable(
 ### Aggiunta dell'oggetto virtuale nella scena
 
 L'ultima operazione da compiere è l'aggiunta del modello renderizzato alla scena.
-Questa operazione avviene attraverso la funzione `addTrasformableNodeToScene()`.
+Questa operazione avviene attraverso la funzione `addTrasformableNodeToScene()` che si occupa di creare un ancora in corrispondenza del punto reale d'interesse.
+A partire da quest'ancora viene creato un nodo che racchiude l'oggetto renderizzato.
+Inoltre nel caso specifico si è usato un `TransformabelNode`, in modo da concedere all'utente la possibilità di ridimensionare o ruotare il modello.
 
 ```kotlin
 fun addTransformableNodeToScene(
@@ -137,6 +122,7 @@ fun addTransformableNodeToScene(
 ```
 
 [^format]: Attualmente sono supportati solo modelli OBJ, FBX e gLTF.
-[^camera]: Lo sviluppatore deve solo dichiarare l'utilizzo del permesso, la richiesta di concessione è gestita in automatico da Sceneform.
-[^arcore]: L'utilizzo di ARCore deve essere dichiarata in quanto non tutti i dispositivi supportano ARCore.
+
+[^apk]: Formato delle applicazioni Android.
+
 [^future]: In informatica con il termine *future*, o *promise*, *delay* e *deferred*, si indica un tecnica che permette di sincronizzare l'esecuzione di un programma concorrente.

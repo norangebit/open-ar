@@ -1,21 +1,23 @@
 ## Runtime fetching models
 
-Lo scopo di questa seconda applicazione è mostrare come sia possibile recuperare i modelli da renderizzare durante l'esecuzione dell'applicazione.
-Questa funzione risulta particolarmente utile quando si deve rilasciare un'applicazione che sfrutta un numero elevato di modelli e non si vuole appesantire il volume del file *apk*[^apk].
-Inoltre è possibile aggiungere nuovi modelli, o aggiornare quelli vecchi, senza dover aggiornare l'applicazione, ma lavorando esclusivamente lato server.
+Nella seconda applicazione d'esempio viene mostrato come sia possibile recuperare i modelli da renderizzare anche durante l'esecuzione dell'applicazione.
+Questa funzione risulta particolarmente utile quando si deve rilasciare un'applicazione che sfrutta numerosi modelli e non si vuole appesantire eccessivamente il volume del file *APK*.
+Inoltre concede maggiore libertà allo sviluppatore in quanto è possibile aggiungere nuovi modelli, o aggiornare quelli vecchi, senza dover operare sull'applicazione, ma lavorando esclusivamente lato server.
 
-Per quest'applicazione oltre alle configurazioni già viste in precedenza dobbiamo aggiungere una nuova dipendenza che include le funzioni necessarie per il fetching del modello.
+In questo caso specifico l'applicazione dovrà riconosce uno o più piani e in seguito ad un tocco dell'utente su di essi, mostrare un modello di *Andy*, la mascotte di Android.
+
+Per quest'applicazione oltre alle configurazioni già viste in precedenza è necessario aggiungere una nuova dipendenza che include le funzioni necessarie per il fetching del modello.
 
 ```gradle
   implementation 'com.google.ar.sceneform:assets:1.6.0'
 ```
 
-Inoltre nell'AndroidManifest bisogna aggiungere il permesso per accedere alla rete.
+Inoltre nell'Android Manifest bisogna aggiungere il permesso per accedere alla rete.
 
 ### Interazione con l'utente
 
-L'interazione con l'utente avviene mediante un tocco sul display.
-Sceneform ci permette di personalizzare il comportamento al verificarsi di questo evento tramite un listener.
+L'interazione con l'utente avviene mediante un tocco sul display in corrispondenza di un piano.
+Sceneform ci permette di personalizzare il comportamento al verificarsi di questo evento tramite il metodo `setOnTapArPlaneListener`.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +49,7 @@ private fun fetchAndPlaceModel(
 
 ### Fetching del model
 
-Il recupero del modello avviene attraverso la funzione `fetchModel`.
+Il recupero del modello avviene attraverso la funzione `fetchModel`, che a sua volta chiama la funzione di libreria `RenderableSource.builder()`.
 
 ```kotlin
 fun fetchModel(
@@ -65,7 +67,7 @@ Attualmente[^sceneform-1.6] Sceneform supporta unicamente il fetching di modelli
 
 ### Rendering e aggiunta del modello
 
-Il rendering del modello avviene tramite la funzione `buildRenderable`, che è molto simile a quella utilizzata nel progetto precedente, con la differenza che in questo caso deve essere passato anche il modello che si è recuperato in precedenza.
+Il rendering del modello avviene tramite la funzione `buildRenderable`, che riprende in buona parte quella vista precedentemente, con la differenza che in questo caso deve essere passato anche il modello recuperato.
 
 ```kotlin
 fun buildRenderable(
@@ -86,7 +88,6 @@ fun buildRenderable(
 }
 ```
 
-L'aggiunta del modello renderizzato alla scena avviene mediante la medesima funzione `addTransformableNodeToScene` vista in precedenza.
+Infine l'aggiunta del modello renderizzato alla scena avviene mediante la medesima funzione `addTransformableNodeToScene` vista in precedenza.
 
 [^sceneform-1.6]: Sceneform 1.6.0.
-[^apk]: Formato delle applicazioni android.
