@@ -13,10 +13,10 @@ L'importazione del modello all'interno del progetto di Android Studio è stato e
 
 ### Creazione del database
 
-Il database contenete tutte le immagini che si desidera far riconosce all'applicazione, può essere creato sia a priori, sia a tempo di esecuzione.
-Per la prima soluzione Google mette a disposizione *The arcoreimag tool*, un software a linea di comando, che oltre a creare il database si occupa anche di valutare l'immagine.
+Il database contenente tutte le immagini che si desidera far riconosce all'applicazione, può essere creato sia a priori, sia a tempo di esecuzione.
+Per la prima soluzione Google mette a disposizione *The arcoreimag tool*, un software a linea di comando, che oltre a creare il database, si occupa anche di valutare l'immagine.
 
-Dato che nel caso specifico si vuole far riconoscere un'unica immagine si è optato per la generazione del database a runtime.
+Dato che nel caso specifico si vuole far riconoscere un'unica immagine, si è optato per la generazione del database a runtime.
 In particolare quest'operazione avviene mediante la funzione `setupAugmentedImageDb`.
 
 ```kotlin
@@ -35,7 +35,7 @@ private fun setupAugmentedImageDb (config: Config): Boolean {
 Il riconoscimento dell'immagine non può avvenire mediate l'utilizzo di una callback in quanto ARCore non permette di registrare un listener all'evento.
 Risulta dunque evidente che la verifica dell'avvenuto match sarà delegata allo sviluppatore.
 
-Per fare ciò si è usato il metodo `addOnUpdateListener` dell'oggetto `Scene`, che permette di eseguire del codice ogni qual volta la scena viene aggiornata.
+Per fare ciò si è usato il metodo `addOnUpdateListener` dell'oggetto `Scene`, che permette di eseguire un pezzo di codice ogni qual volta la scena viene aggiornata.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,7 +102,7 @@ fun buildRenderable(
 ### Aggiunta dell'oggetto virtuale nella scena
 
 L'ultima operazione da compiere è l'aggiunta del modello renderizzato alla scena.
-Questa operazione avviene attraverso la funzione `addTrasformableNodeToScene()` che si occupa di creare un ancora in corrispondenza del punto reale d'interesse.
+Questa operazione avviene attraverso la funzione `addTrasformableNodeToScene` che si occupa di creare un'ancora in corrispondenza del punto reale d'interesse.
 A partire da quest'ancora viene creato un nodo che racchiude l'oggetto renderizzato.
 Inoltre nel caso specifico si è usato un `TransformabelNode`, in modo da concedere all'utente la possibilità di ridimensionare o ruotare il modello.
 
