@@ -1,19 +1,18 @@
 ## Runtime building models
 
-Lo scopo di questo progetto è mostrare come sia possibile costruire dei semplici modelli tridimensionali senza dover ricorrere da asset pre costruiti.
+Lo scopo di questo progetto è mostrare come sia possibile costruire dei semplici modelli tridimensionali senza dover ricorrere ad asset pre costruiti.
 
 L'SDK di Sceneform fornisce due classi per adempiere a questo compito:
 
 - `MaterialFactory`: consente di creare un *"materiale"*, partendo o da un colore o da una texture[^texture] definita precedentemente.
 - `MaterialShape`: consente di creare delle semplici forme geometriche come cilindri, sfere e cuboidi.
 
-Nel caso specifico è stata realizzata un applicazione che in seguito al tocco di un utente renderizza nella scena un oggetto dalla forma e colore *pseudo-casuali*.
-Inoltre è stato aggiunto un ulteriore elemento di interazione con l'utente, che potrà cliccare anche sull'oggetto virtuale, evento che comporterà un cambiamento nella tinta di quest'ultimo.
+Nel caso specifico è stata realizzata un'applicazione che in seguito al tocco dell'utente renderizza nella scena un oggetto dalla forma e dal colore *pseudo-casuali*.
+Inoltre è stato aggiunto un ulteriore elemento di interazione con l'utente, che gli consente di cliccare anche sull'oggetto renderizzato, al fine di cambiare la tinta di quest'ultimo.
 
 ### Interazione con l'utente
 
-Anche in questo caso l'interazione con l'utente avviene mediante un tocco sul display in corrispondenza di un piano.
-
+Anche in questo caso l'interazione con l'utente è gestita mediante il metodo `setOnTapArPlaneListener`.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,10 +48,9 @@ private fun addModel(hitResult: HitResult, plane: Plane, motionEvent: MotionEven
 
 ### Creazione del materiale
 
-Il materiale dell'oggetto tridimensionale viene creato a partire da un colore.
-La creazione avviene mediante la funzione `buildMaterial` che a sua volta richiama la funzione di libreria ` MaterialFactory.makeOpaqueWithColor`.
+La creazione del materiale avviene mediante la funzione `buildMaterial` che a sua volta richiama la funzione di libreria ` MaterialFactory.makeOpaqueWithColor`.
 
-Come già visto in precedenza, la soluzione adottata da Sceneform per interagire con oggetti *pesanti*, è una callback che nel caso specifico può essere specificata mediante il parametro `onSuccess`.
+Come già visto in precedenza, la soluzione adottata da Sceneform per interagire con oggetti *pesanti* è una callback che nel caso specifico può essere specificata mediante il parametro `onSuccess`.
 
 ```kotlin
 fun buildMaterial(
@@ -75,14 +73,14 @@ fun buildShape(
     shape: Shape,
     material: Material
 ): ModelRenderable {
-    val dimension = Vector3(0.1f, 0.1f, 0.1f)
+    val center = Vector3(0.0f, 0.0f, 0.0f)
     return when (shape) {
         Shape.CUBE -> ShapeFactory
-            .makeCube(dimension, Vector3(0.0f, 0.0f, 0.0f), material)
+            .makeCube(Vector3(0.2f, 0.2f, 0.2f), center, material)
         Shape.CYLINDER -> ShapeFactory
-            .makeCylinder(0.1f, 0.3f, Vector3(0.0f, 0.0f, 0.0f), material)
+            .makeCylinder(0.1f, 0.2f, center, material)
         Shape.SPHERE -> ShapeFactory
-            .makeSphere(0.1f, dimension, material)
+            .makeSphere(0.1f, center, material)
     }
 }
 ```
@@ -111,6 +109,6 @@ fun changeColorOfMaterial(
 
 Quest'ultima si occupa di creare un nuovo materiale e sostituirlo a quello precedente.
 
-[^texture]: In ambito grafico con il termine *texture*, si è soliti indicare una qualità visiva che si ripete mediante un pattern ben definito.
+[^texture]: In ambito grafico con il termine *texture* si è soliti indicare una qualità visiva che si ripete mediante un pattern ben definito.
 
 [^unit]: Equivalente in Kotlin dell'oggetto `Void` di Java.
