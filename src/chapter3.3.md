@@ -1,6 +1,6 @@
 ## Runtime building models
 
-Lo scopo di questo progetto è mostrare come sia possibile costruire dei semplici modelli tridimensionali senza dover ricorrere ad asset pre costruiti.
+Lo scopo di questo progetto è mostrare come sia possibile costruire dei semplici modelli tridimensionali senza dover ricorrere ad asset pre costituiti.
 
 L'SDK di Sceneform fornisce due classi per adempiere a questo compito:
 
@@ -8,7 +8,7 @@ L'SDK di Sceneform fornisce due classi per adempiere a questo compito:
 - `MaterialShape`: consente di creare delle semplici forme geometriche come cilindri, sfere e cuboidi.
 
 Nel caso specifico è stata realizzata un'applicazione che in seguito al tocco dell'utente renderizza nella scena un oggetto dalla forma e dal colore *pseudo-casuali*.
-Inoltre è stato aggiunto un ulteriore elemento di interazione con l'utente, che gli consente di cliccare anche sull'oggetto renderizzato, al fine di cambiare la tinta di quest'ultimo.
+Inoltre è stato aggiunto un ulteriore elemento di interazione con l'utente, che gli consente di cliccare sull'oggetto renderizzato, al fine di cambiare la tinta di quest'ultimo.
 
 ### Interazione con l'utente
 
@@ -16,16 +16,20 @@ Anche in questo caso l'interazione con l'utente è gestita mediante il metodo `s
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-	//...
-	arFragment.setOnTapArPlaneListener(this::addModel)
-	//...
+  // ...
+  arFragment.setOnTapArPlaneListener(this::addModel)
+  // ...
 }
 ```
 
 Dove la funzione `addModel` si occupa della creazione del materiale e della forma e infine dell'aggiunta del modello alla scena.
 
 ```kotlin
-private fun addModel(hitResult: HitResult, plane: Plane, motionEvent: MotionEvent) {
+private fun addModel(
+  hitResult: HitResult,
+  plane: Plane,
+  motionEvent: MotionEvent
+) {
   val color = generateColor()
 
   buildMaterial(this, color) {
@@ -48,19 +52,19 @@ private fun addModel(hitResult: HitResult, plane: Plane, motionEvent: MotionEven
 
 ### Creazione del materiale
 
-La creazione del materiale avviene mediante la funzione `buildMaterial` che a sua volta richiama la funzione di libreria ` MaterialFactory.makeOpaqueWithColor`.
+La creazione del materiale avviene mediante la funzione `buildMaterial` che a sua volta richiama la funzione di libreria ` MaterialFactory .makeOpaqueWithColor`.
 
 Come già visto in precedenza, la soluzione adottata da Sceneform per interagire con oggetti *pesanti* è una callback che nel caso specifico può essere specificata mediante il parametro `onSuccess`.
 
 ```kotlin
 fun buildMaterial(
-    context: Context,
-    color: Color,
-    onSuccess: (material: Material) -> Unit
+  context: Context,
+  color: Color,
+  onSuccess: (material: Material) -> Unit
 ) {
-    MaterialFactory
-        .makeOpaqueWithColor(context, color)
-        .thenAccept(onSuccess)
+  MaterialFactory
+    .makeOpaqueWithColor(context, color)
+    .thenAccept(onSuccess)
 }
 ```
 
@@ -70,18 +74,19 @@ Per la costruzione della forma geometrica si è usata la funzione `buildShape` c
 
 ```kotlin
 fun buildShape(
-    shape: Shape,
-    material: Material
+  shape: Shape,
+  material: Material
 ): ModelRenderable {
-    val center = Vector3(0.0f, 0.0f, 0.0f)
-    return when (shape) {
-        Shape.CUBE -> ShapeFactory
-            .makeCube(Vector3(0.2f, 0.2f, 0.2f), center, material)
-        Shape.CYLINDER -> ShapeFactory
-            .makeCylinder(0.1f, 0.2f, center, material)
-        Shape.SPHERE -> ShapeFactory
-            .makeSphere(0.1f, center, material)
-    }
+  val center = Vector3(0.0f, 0.0f, 0.0f)
+  return when (shape) {
+    Shape.CUBE -> ShapeFactory
+      .makeCube(Vector3(0.2f, 0.2f, 0.2f),
+        center, material)
+      Shape.CYLINDER -> ShapeFactory
+        .makeCylinder(0.1f, 0.2f, center, material)
+      Shape.SPHERE -> ShapeFactory
+        .makeSphere(0.1f, center, material)
+  }
 }
 ```
 
@@ -89,7 +94,7 @@ Come è possibile notare a seconda della figura, vanno specificate le caratteris
 
 ### Aggiunta del nodo alla scena
 
-L'aggiunta del nodo alla scena avviene mediante la funzione `addTransformableNodeToScene` che presenta il medesimo comportamento visto nei precedenti progetti, con l'unica differenza del valore di ritorno.
+L'aggiunta di un nuovo nodo alla scena avviene mediante la funzione `addTransformableNodeToScene` che presenta il medesimo comportamento visto nei precedenti progetti, con l'unica differenza del valore di ritorno.
 Infatti se prima veniva restituito un'`Unit`[^unit] in questo caso viene restituito un oggetto di tipo `Node`.
 
 Questa modifica si rende necessaria per poter aggiungere al nodo un listener sull'evento di tocco.
@@ -97,17 +102,17 @@ Questa operazione avviene mediante il metodo `setOnTapListener`, al quale, media
 
 ```kotlin
 fun changeColorOfMaterial(
-    context: Context,
-    color: Color,
-    renderable: Renderable
+  context: Context,
+  color: Color,
+  renderable: Renderable
 ) {
-    buildMaterial(context, color) {
-        renderable.material = it
-    }
+  buildMaterial(context, color) {
+    renderable.material = it
+  }
 }
 ```
 
-Quest'ultima si occupa di creare un nuovo materiale e sostituirlo a quello precedente.
+Quest'ultima funzione si occupa di creare un nuovo materiale e sostituirlo a quello precedente.
 
 [^texture]: In ambito grafico con il termine *texture* si è soliti indicare una qualità visiva che si ripete mediante un pattern ben definito.
 
