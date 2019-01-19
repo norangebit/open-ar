@@ -21,9 +21,11 @@ Sceneform ci permette di personalizzare il comportamento al verificarsi di quest
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-	//...
-	arFragment.setOnTapArPlaneListener(this::fetchAndPlaceModel)
-	//...
+  // ...
+  arFragment.setOnTapArPlaneListener(
+    this::fetchAndPlaceModel
+  )
+  // ...
 }
 ```
 
@@ -49,7 +51,7 @@ private fun fetchAndPlaceModel(
 
 ### Fetching del model
 
-Il recupero del modello avviene attraverso la funzione `fetchModel`, che a sua volta chiama la funzione di libreria `RenderableSource.builder()`.
+Il recupero del modello avviene attraverso la funzione `fetchModel`, che a sua volta chiama la funzione di libreria `RenderableSource.builder`.
 
 ```kotlin
 fun fetchModel(
@@ -57,8 +59,14 @@ fun fetchModel(
   source: Uri
 ) : RenderableSource {
 	return RenderableSource.builder()
-      .setSource(context, source, RenderableSource.SourceType.GLTF2)
-      .setRecenterMode(RenderableSource.RecenterMode.ROOT)
+      .setSource(
+        context,
+        source,
+        RenderableSource.SourceType.GLTF2
+      )
+      .setRecenterMode(
+        RenderableSource.RecenterMode.ROOT
+      )
       .build()
 }
 ```
@@ -76,15 +84,15 @@ fun buildRenderable(
   modelUri: Uri,
   onSuccess: (renderable: Renderable) -> Unit
 ) {
-	ModelRenderable.builder()
-      .setRegistryId(modelUri)
-      .setSource(context, model)
-      .build()
-      .thenAccept(onSuccess)
-      .exceptionally {
-        Log.e("SCENEFORM", "unable to load model", it)
-        return@exceptionally null
-      }
+  ModelRenderable.builder()
+    .setRegistryId(modelUri)
+    .setSource(context, model)
+    .build()
+    .thenAccept(onSuccess)
+    .exceptionally {
+      Log.e("SCENEFORM", "unable to load model", it)
+      return@exceptionally null
+    }
 }
 ```
 

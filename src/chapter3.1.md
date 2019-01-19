@@ -14,13 +14,15 @@ L'importazione del modello all'interno del progetto di Android Studio è stato e
 ### Creazione del database
 
 Il database contenente tutte le immagini che si desidera far riconosce all'applicazione, può essere creato sia a priori, sia a tempo di esecuzione.
-Per la prima soluzione Google mette a disposizione *The arcoreimag tool*, un software a linea di comando, che oltre a creare il database, si occupa anche di valutare l'immagine.
+Per la prima soluzione Google mette a disposizione *The arcoreimage tool*, un software a linea di comando, che oltre a creare il database, si occupa anche di valutare l'immagine.
 
-Dato che nel caso specifico si vuole far riconoscere un'unica immagine, si è optato per la generazione del database a runtime.
+Nel caso specifico si vuole far riconoscere un'unica immagine, quindi si è optato per la generazione del database a tempo di esecuzione.
 In particolare quest'operazione avviene mediante la funzione `setupAugmentedImageDb`.
 
 ```kotlin
-private fun setupAugmentedImageDb (config: Config): Boolean {
+private fun setupAugmentedImageDb (
+  config: Config
+): Boolean {
   val image = loadImage(IMAGE_FILE_NAME) ?: return false
 
   val augmentedImageDb = AugmentedImageDatabase(session)
@@ -35,22 +37,22 @@ private fun setupAugmentedImageDb (config: Config): Boolean {
 Il riconoscimento dell'immagine non può avvenire mediate l'utilizzo di una callback in quanto ARCore non permette di registrare un listener all'evento.
 Risulta dunque evidente che la verifica dell'avvenuto match sarà delegata allo sviluppatore.
 
-Per fare ciò si è usato il metodo `addOnUpdateListener` dell'oggetto `Scene`, che permette di eseguire un pezzo di codice ogni qual volta la scena viene aggiornata.
+Per fare ciò si è usato il metodo `addOnUpdateListener` dell'oggetto `Scene`, che permette di eseguire uno *snippet* di codice ogni qual volta la scena viene aggiornata.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-  //...
-  
-  arSceneView.scene.addOnUpdateListener(this::detectAndPlaceAugmentedImage)
-  
-  //...
+  // ...
+  arSceneView.scene.addOnUpdateListener(
+    this::detectAndPlaceAugmentedImage
+  )
+  // ...
 }
 ```
 
 Dove la funzione `detectAndPlaceAugmentedImage` si occupa di verificare la presenza di un match e nel caso di un riscontro positivo, dell'aggiunta dell'oggetto virtuale alla scena.
 
 ```kotlin
-private fun detectAndPlaceAugmentedImage(frameTime: FrameTime) {
+fun detectAndPlaceAugmentedImage(frameTime: FrameTime) {
   if (isModelAdded)
     return
 
@@ -60,7 +62,8 @@ private fun detectAndPlaceAugmentedImage(frameTime: FrameTime) {
     .find { it.name.contains(IMAGE_NAME) }
     ?: return
 
-  val augmentedImageAnchor = augmentedImage.createAnchor(augmentedImage.centerPose)
+  val augmentedImageAnchor = augmentedImage
+    .createAnchor(augmentedImage.centerPose)
 
   buildRenderable(this, Uri.parse(MODEL_NAME)) {
     addTransformableNodeToScene(
@@ -78,7 +81,7 @@ Il settaggio del flag `isModelAdded` al valore booleano di vero, si rende necess
 
 ### Rendering del modello
 
-Il rendering del modello avviene attraverso la funzione `buildRenderable` che a sua volta chiama la funzione di libreria `ModelRenderable.builder()`.
+Il rendering del modello avviene attraverso il metodo `buildRenderable` che a sua volta chiama la funzione di libreria `ModelRenderable.builder`.
 Poiché quest'ultima è un operazione onerosa viene restituito un `Future`[^future] che racchiude il `Renderable` vero e proprio.
 L'interazione con l'oggetto concreto avviene mediante una callback che è possibile specificare attraverso il metodo `thenAccept`.
 
@@ -113,7 +116,9 @@ fun addTransformableNodeToScene(
   renderable: Renderable
 ) {
   val anchorNode = AnchorNode(anchor)
-  val transformableNode = TransformableNode(arFragment.transformationSystem)
+  val transformableNode = TransformableNode(
+    arFragment.transformationSystem
+  )
   transformableNode.renderable = renderable
   transformableNode.setParent(anchorNode)
   arFragment.arSceneView.scene.addChild(anchorNode)

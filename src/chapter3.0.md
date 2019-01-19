@@ -19,7 +19,7 @@ android {
 Sempre nel file per il build del progetto è necessario aggiungere la dipendenza di Sceneform.
 
 ```gradle
-implementation "com.google.ar.sceneform.ux:sceneform-ux:1.6.0"
+implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
 ```
 
 Inoltre nell'Android Manifest[^manifest] va dichiarato l'utilizzo del permesso della fotocamera[^camera] e l'utilizzo di ARCore[^arcore].
