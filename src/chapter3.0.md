@@ -22,7 +22,17 @@ Sempre nel file per il build del progetto è necessario aggiungere la dipendenza
 implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
 ```
 
-Inoltre nell'Android Manifest[^manifest] va dichiarato l'utilizzo del permesso della fotocamera[^camera] e l'utilizzo di ARCore[^arcore].
+Inoltre per sfruttare al massimo le potenzialità offerte da Sceneform e ridurre al minimo il lavoro extra per la gestione delle view si deve aggiungere il fragment di Sceneform al file di layout dell'activity principale mediante il seguente codice xml.
+
+```xml
+<fragment
+   android:id="@+id/sceneform_fragment"
+   android:name="com.google.ar.sceneform.ux.ArFragment"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" />
+```
+
+Infine nell'Android Manifest[^manifest] va dichiarato l'utilizzo del permesso della fotocamera[^camera] e l'utilizzo di ARCore[^arcore].
 
 [^manifest]: File in cui vengono dichiarate tutte caratteristiche di un'applicazione Android, tra cui anche i permessi.
 
