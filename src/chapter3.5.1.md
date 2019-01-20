@@ -158,7 +158,7 @@ private fun createPlanetNode(
 
 È importante notare che in questo modo non sono i pianeti a ruotare intorno al sole, ma sono le orbite a ruotare su se stesse e visto che i pianeti sono *"incollati"* ad esse si ha l'illusione del moto di rivoluzione.
 
-#### Creazione e aggiunta del sistema solare alla scena
+#### Creazione e aggiunta del sistema solare
 
 La creazione del nostro sistema solare avviene mediante la funzione `createSolarSystem` che riceve in ingresso la `Map` con tutti i modelli dei pianeti, li posizionare intorno al sole e infine restituisce quest'ultimo.
 
