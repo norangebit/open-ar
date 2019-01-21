@@ -10,8 +10,8 @@ Per mostrare il funzionamento degli animator è stato realizzato un progetto d'e
 #### Recupero e rendering dei modelli
 
 Visto l'elevato numero di modelli con cui si deve operare si è scelto di recuperarli da un server a runtime.
-Il procedimento è simile a quello visto precedentemente, con la differenza che in questo caso si è scelto di non usare le callback, al fine di evitare il *callback hell*[^callback-hell], a favore delle *coroutines*, uno strumento messo a disposizione dal linguaggio Kotlin che permette di gestire codice asincrono come se fosse sequenziale.
-Inoltre sempre attraverso le *coroutines* è stato possibile eseguire più rendering in parallelo e quindi ottimizzare il tempo di CPU dell'applicazione.
+Il procedimento è simile a quello visto precedentemente, con la differenza che in questo caso non si è optato per l'utilizzo delle callback, al fine di evitare il *callback hell*[^callback-hell], a favore delle *coroutines*, uno strumento messo a disposizione dal linguaggio Kotlin che permette di gestire codice asincrono come se fosse sequenziale.
+Sempre attraverso le *coroutines* è stato possibile eseguire più rendering in parallelo e quindi ottimizzare il tempo di CPU dell'applicazione.
 
 All'interno del metodo `onCreate` viene avviata una coroutine che richiama la funzione `loadPlanets`.
 Inoltre viene conservato un riferimento al `Job` della coroutine.
@@ -49,7 +49,7 @@ suspend fun loadPlanets(
 ```
 
 Nella funzione `loadPlanet` viene da prima recuperato il modello tridimensionale dal server e successivamente se ne effettua il rendering attraverso la funzione `buildFutureRenderable`.
-Quest'ultima, come abbiamo già visto, restituisce un `CompletableFuture` che per poter essere utilizzarlo tramite delle coroutines deve essere trasformarlo in un `Deferred`[^deferred].
+Quest'ultima, come abbiamo già visto, restituisce un `CompletableFuture` che per poter essere utilizzato tramite delle coroutines deve essere trasformarlo in un `Deferred`[^deferred].
 Questa operazione avviene attraverso il costruttore di coroutines `async`.
 Inoltre viene usato il dispatcher `IO` che ci consente di eseguire l'operazione in background.
 
@@ -90,7 +90,7 @@ Per realizzare le orbite e i pianeti è stata implementata la classe `RotationNo
 
 Componente principale di questa è la funzione `createAnimator` che si occupa della creazione dell'`ObjectAnimator` che permette di muovere i modelli.
 All'interno della funzione vengono definiti i punti da cui ottenere la rotazione attraverso l'interpolatore.
-Inoltre viene impostato l'`ObjectAnimator` affinché riproduca in loop l'animazione.
+Infine viene impostato l'`ObjectAnimator` affinché riproduca in loop l'animazione.
 
 ```kotlin
 private fun createAnimator(): ObjectAnimator {
@@ -127,7 +127,8 @@ override fun onDeactivate() {
 ```
 
 La creazione dei pianeti è gestita attraverso un ulteriore classe, `PlanetNode`, anch'essa estensione della classe `Node`.
-Questa classe altro non è che un nodo che come attributo ha un `RotationNode`.
+Quest'ultima viene definita come un nodo dotato di un `Renderable` ancorato ad un `RotationNode`.
+Come vedremo in seguito questa operazione si rende necessaria per garantire il moto di rivoluzione.
 
 La creazione delle orbite e dei pianeti avviene mediante la funzione `createPlanetNode`.
 L'orbita del pianeta viene ancorata al nodo principale, nel caso specifico il sole, e il pianeta viene ancorato alla sua orbita.
@@ -160,7 +161,7 @@ private fun createPlanetNode(
 
 #### Creazione e aggiunta del sistema solare
 
-La creazione del nostro sistema solare avviene mediante la funzione `createSolarSystem` che riceve in ingresso la `Map` con tutti i modelli dei pianeti, li posizionare intorno al sole e infine restituisce quest'ultimo.
+La creazione del nostro sistema solare avviene mediante la funzione `createSolarSystem` che riceve in ingresso la `Map` con tutti i modelli dei pianeti, li posiziona intorno al sole e infine restituisce quest'ultimo.
 
 ```kotlin
 private fun createSolarSystem(

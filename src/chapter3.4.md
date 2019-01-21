@@ -17,9 +17,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-La verifica di una collisione può essere effettuata o attraverso il metodo `overlapTest`, che dato un nodo in input restituisce il primo nodo che entra in collisione con questo. 
-Oppure mediante il metodo `overlapTestAll`, che dato un nodo in input restituisce una lista con tutti i nodi che collidono con esso.
-Nel caso in cui non sono state riscontrate collisioni i metodi restituiscono rispettivamente `null` e una lista vuota.
+La verifica di una collisione può essere effettuata o attraverso il metodo `overlapTest`, che dato un nodo in input restituisce il primo nodo che entra in collisione con questo, oppure mediante il metodo `overlapTestAll`, che dato un nodo in input restituisce una lista con tutti i nodi che collidono con esso.
+Nel caso in cui non siano state riscontrate collisioni, i metodi restituiscono rispettivamente `null` e una lista vuota.
 
 La funzione `onUpdate` si occupa di verificare la presenza di collisioni.
 
@@ -60,7 +59,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-Con la funzione `addShape` che, utilizzando le funzioni `buildMaterial` e `buildShape` analizzate in precedenza, si occupa dell'effettiva aggiunta dell'aggetto alla scena.
+La funzione `addShape`, utilizzando le funzioni `buildMaterial` e `buildShape` analizzate in precedenza, si occupa dell'effettiva aggiunta dell'aggetto alla scena.
 
 ```kotlin
 private fun addShape(
@@ -82,6 +81,6 @@ private fun addShape(
 }
 ```
 
-Risulta importante notare che attraverso questa strategia l'aggiunta del modello alla scena avvenga incondizionatamente, ed è solo all'aggiornamento di quest'ultima che si effettua il controllo di collisione sull'ultimo nodo aggiunto.
+Risulta importante notare come attraverso questa strategia l'aggiunta del modello alla scena avvenga incondizionatamente, ed è solo all'aggiornamento di quest'ultima che si effettua il controllo di collisione sull'ultimo nodo aggiunto.
 
 [^toast]: Oggetto nativo di Android mediante il quale è possibile informare l'utente in modo non invasivo.
