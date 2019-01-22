@@ -1,7 +1,7 @@
 ## Cloud anchors
 
-Un ulteriore funzionalità messa a disposizione da ARCore sono le *Cloud Anchors* che ci permette di salvare su un server remoto le ancore a cui sono agganciati i nodi.
-Grazie a questa funzionalità è possibile salvare un'esperienza di realtà aumentata per un uso futuro o per condividere con altri utenti.
+Un'ulteriore funzionalità messa a disposizione da ARCore sono le *Cloud Anchors* che ci permette di salvare su un server remoto le ancore a cui sono agganciati i nodi.
+Grazie a questa funzionalità è possibile salvare un'esperienza di realtà aumentata per un uso futuro o per condividerla con altri utenti.
 
 In questo progetto verrà mostrato come sia possibile posizionare, tramite il device A, un vaso di fiori su una superficie piana, e vedere la stessa scena sul dispositivo B.
 
@@ -18,7 +18,7 @@ Una volta ottenuta la chiave è necessario dichiararla nell'Android Manifest med
 
 Inoltre per tenere traccia dello stato dell'applicazione si è definita una classe enumerativa con cinque possibili valori.
 
-- `NONE`: non è presente alcuno oggetto nella scena ne se ne sta recuperando uno dal server.
+- `NONE`: non è presente alcuno oggetto nella scena né se ne sta recuperando uno dal server.
 - `HOSTING`: si sta caricando l'ancora sul server.
 - `HOSTED`: l'ancora è stata caricata sul server.
 - `RESOLVING`: si sta recuperando l'ancora dal server.
@@ -26,7 +26,7 @@ Inoltre per tenere traccia dello stato dell'applicazione si è definita una clas
 
 ### Attivazione delle cloud anchors
 
-Le cloud anchor di default sono disattivate e la loro attivazione può avvenire in due modi.
+Le cloud anchors di default sono disattivate e la loro attivazione può avvenire in due modi.
 
 - **Attivazione manuale**:
   Con questa soluzione lo sviluppatore si occupa di creare una nuova configurazione della sessione di ARCore in cui le cloud anchors sono attivate e andare a sostituire questa nuova configurazione a quella di default.
@@ -54,12 +54,20 @@ class CloudArFragment: ArFragment(){
 
 Inoltre bisogna modificare anche il file di layout affinché non utilizzi più l'`ArFragment`, ma il `CloudArFragment`.
 
+```xml
+<fragment
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+    android:name="it.norangeb.cloudanchors.CloudArFragment"
+  android:id="@+id/ar_fragment"/>
+```
+
 ### Cloud Anchor Helper
 
 Quando viene caricata un'ancora sul server viene associata ad essa un valore alfanumerico che ci permette di identificarla univocamente.
-Dato che il codice risulta essere molto lungo e quindi difficile da ricopiare, si è scelto di appoggiarsi al servizio *firestore * di Firebase per creare una relazione uno tra l'UUID e un valore numerico intero.
+Dato che il codice risulta essere molto lungo e quindi difficile da ricordare e ricopiare, si è scelto di appoggiarsi al servizio *firestore * di Firebase[@firebase:Firebase:2019] per creare una relazione uno a uno tra l'UUID e uno *short code* intero.
 
-Queste operazioni avvengono mediante la classe `CloudAnchorHelper` che fornisce due metodi principali `getShortCode` e `getCloudAnchorId`.
+Queste operazioni avvengono tramite la classe `CloudAnchorHelper` che fornisce due metodi principali `getShortCode` e `getCloudAnchorId`.
 
 ```kotlin
 fun getShortCode(cloudAnchorId: String): Int {
@@ -90,8 +98,8 @@ fun getCloudAnchorId(
 }
 ```
 
-Il primo metodo riceve in ingresso l'UUID dell'ancora e lo aggiunge al database usando come chiave un numero intero.
-Mentre il secondo metodo dato il codice intero recupera l'identificativo dell'ancora e svolge su di esso le operazioni specificate nella *lambda expression* `onSuccess`.
+Il primo metodo riceve in ingresso l'UUID dell'ancora e lo aggiunge al database di Firebase usando come chiave un numero intero che viene restituito al chiamante.
+Mentre il secondo metodo, dato il codice intero, recupera l'identificativo dell'ancora e svolge su di esso le operazioni specificate nella *lambda expression* `onSuccess`.
 
 ### Aggiunta del modello
 
@@ -124,7 +132,7 @@ private fun addModel(
 
 ### Check Hosting
 
-Il metodo `checkCloudAnchor` viene eseguito ogni qual volta viene aggiornata la scena, e in base allo stato dell'applicazione vengono eseguite determinate operazioni.
+Il metodo `checkCloudAnchor` viene eseguito ogni qual volta viene aggiornata la scena e, in base allo stato dell'applicazione vengono eseguite determinate operazioni.
 
 ```kotlin
 private fun checkCloudAnchor(frameTime: FrameTime) {
@@ -133,7 +141,7 @@ private fun checkCloudAnchor(frameTime: FrameTime) {
   )
     return
 
-  val cloudState = cloudAnchor?.cloudAnchorState?:return
+  val cloudState=cloudAnchor?.cloudAnchorState?:return
 
   if (cloudState.isError) {
     toastError()
@@ -151,7 +159,7 @@ private fun checkCloudAnchor(frameTime: FrameTime) {
 }
 ```
 
-La funzione `checkHosting` si occupa di notificare all'utente il codice numerico associato all'ancora e di cambiare lo stato dell'applicazione.
+Nel caso specifico in cui il processo di caricamento sia stato completato con successo viene eseguita la funzione `checkHosting` che si occupa di notificare all'utente il codice numerico associato all'ancora e di cambiare lo stato dell'applicazione da `HOSTING` a `HOSTED`.
 
 ```kotlin
 private fun checkHosting() {
@@ -174,7 +182,7 @@ private fun checkHosting() {
 
 ### Resolving dell'ancora
 
-L'utente può ripristinare un ancora premendo sul pulsante *resolve*.
+L'utente può ripristinare un'ancora premendo sul pulsante *resolve*.
 Il listener associato a questo evento è racchiuso nella funzione `onResolve` che a sua volta mostra all'utente un dialog in cui può inserire il codice dell'ancora da ripristinare.
 
 ```kotlin
@@ -188,7 +196,7 @@ fun onResolveClick(view: View) {
 }
 ```
 
-Alla conferma da parte dell'utente viene eseguito il metodo `onResolveOkPressed` che converte il codice numerico nell'UUID dell'ancora e da questo ripristina il nodo nella scena.
+Alla conferma dell'inserimento, da parte dell'utente, viene eseguito il metodo `onResolveOkPressed` che converte lo *short code* nell'UUID dell'ancora e da questo ripristina il nodo nella scena.
 
 ```kotlin
 private fun onResolveOkPressed(dialogValue: String) {
