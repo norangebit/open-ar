@@ -63,7 +63,7 @@ Quindi per la renderizzazione degli oggetti tridimensionali si è *costretti* ad
 
 Oltre alle soluzioni platform-specific sono disponibili altre due versioni di ARCore, una per l'ambiente Unity 3D e una per Unreal Engine.
 Con queste ultime è possibile appoggiarsi ad un motore grafico per la gestione del rendering e quindi rendere più semplice e veloce il compito dello sviluppatore.
-Per quanto i vantaggi di queste soluzioni siano innegabile, bisogna considerare che facendo ricorso ad esse si sta introducendo un ulteriore strato di software nel processo di sviluppo;
+Per quanto i vantaggi di queste soluzioni siano innegabili, bisogna considerare che facendo ricorso ad esse si sta introducendo un ulteriore strato di software nel processo di sviluppo;
 software distribuito tramite licenze proprietarie che comportano costi di utilizzo.
 
 Oltre alle soluzioni elencate in precedenza, per lo sviluppo in ambiente Android, Google mette a disposizione Sceneform[@googlear:SceneformSDKAndroid:2019], un framework per la gestione del rendering di oggetti 3D, ottimizzato per dispositivi mobili che permette di creare velocemente applicazioni in AR sfruttando Java.
