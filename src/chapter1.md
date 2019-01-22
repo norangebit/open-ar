@@ -12,7 +12,7 @@ Recentissima, per applicazione, invece è l'MR(mixed reality), che può essere d
 Volendo elaborare una definizione di questi concetti, usando un paragone cinematografico, possiamo dire che in *The Matrix*[@wachowski:Matrix:1999] viene usata la VR.
 Invece in *Iron Man*[@favreau:IronMan:2008] quando *Tony Stark* è in volo e gli vengono mostrate a video informazioni aggiuntive sta usando l'AR, mentre quando interagisce con gli ologrammi sta usando tecnologie di mixed reality.
 
-Invece per una definizione più accurata possiamo ricorrere a quella elaborata nel 1994 da *Paul Milgram* e da alcuni suoi colleghi, che introducono il concetto di ***reality-virtuality continuum***[@milgram:AugmentedRealityClass:1994].
+Per una definizione più accurata possiamo ricorrere a quella elaborata nel 1994 da *Paul Milgram* e da alcuni suoi colleghi, che introducono il concetto di ***reality-virtuality continuum***[@milgram:AugmentedRealityClass:1994].
 Nel loro lavoro hanno definito un segmento(vedi fig. \ref{rvc}) che ha ai propri estremi, da un lato l'ambiente reale, quello in cui viviamo, e dall'altro quello virtuale, completamente generato al computer. 
 Esattamente a metà strada tra essi risiede la realtà mista, dove gli oggetti reali e virtuali convivono ed hanno pari valenza.
 
@@ -99,7 +99,7 @@ Altro campo in cui hanno riscosso notevole successo è quello ludico e ricreativ
 
 ### Location based AR
 
-La location based AR, effettua il riconoscimento dell'ambiente mediante sensori di posizionamento, sia out-door(es. GPL), sia in-door(es. Beacon Bluetooth[^beacon]).
+La location based AR, effettua il riconoscimento dell'ambiente mediante sensori di posizionamento, sia out-door(es. GPS), sia in-door(es. Beacon Bluetooth[^beacon]).
 Generalmente questo tipo di AR non opera da sola, ma in simultanea ad una delle due tecnologie sopra citate.
 
 La maggiore applicazione di queste tecnologie si ha nella navigazione in realtà aumentata. Un esempio è la possibilità di vedere percorsi virtuali tra le strade delle città d'arte.
