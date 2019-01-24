@@ -26,7 +26,7 @@ Inoltre hanno definito due stati intermedi.
 - ***Augmented Reality***:
   Stato in cui alcuni elementi virtuali coesistono nel mondo reale, andando ad ampliarne i confini.
   
-![Reality Virtuality Continuum](figures/rvc.png){#rvc width=300 height=200px}
+![Reality Virtuality Continuum](figures/rvc.png){#rvc width=400 height=250px}
 
 ## Storia
 
@@ -38,7 +38,7 @@ Nonostante le potenzialità della macchina[^cinema-4d], per mancanza di investit
 Una prima applicazione di AR *moderna* invece la troviamo nel 1968 quando *Ivan Sutherland* costruisce il primo visore(vedi fig. \ref{sutherland}) in grado di aggiungere elementi generati dal computer alla visione umana[@sutherland:HeadmountedThreedimensionalDisplay:1968].
 Mentre per il battesimo si dovrà attendere il 1990 quanto *Tom Caudell* introduce per la prima volta il termine *augmented reality*.
 
-![Vista frontale del visore di Sutherland](figures/headmounted2.jpg){#sutherland width=300 height=200px}
+![Vista frontale del visore di Sutherland](figures/headmounted2.jpg){#sutherland width=400 height=250px}
 
 Sempre agli inizi degli anni 90 arriva anche la prima applicazione non accademica da parte dell'aviazione Americana.
 Tramite degli *head-up display*, ovvero un visore a sovrimpressione, venivano mostrate ai piloti delle informazioni aggiuntive, come velocità, quota, beccheggio.
@@ -52,7 +52,7 @@ Uno dei prodotti più riusciti sono senza dubbio i *Google Glass*(vedi fig. \ref
 L'interazione può avvenire sia tramite un touchpad(in grado di riprodurre audio mediante conduzione ossea[^conduzione-ossea]) sia mediante comandi vocali.
 Grazie a quest'ultima caratteristica è possibile avere un'esperienza d'uso *hand-free* che li ha resi particolarmente utili in campo industriale e medico.
 
-![Google Glass Enterprise Edition](figures/google_glass.jpeg){#googleglass width=300 height=200px}
+![Google Glass Enterprise Edition](figures/google_glass.jpeg){#googleglass width=400 height=250px}
 
 La crescente diffusione degli smartphone e il progressivo aumento delle loro capacità di calcolo, hanno reso queste nuove tecnologie accessibili al grande pubblico.
 In questo modo è scaturita una continua richiesta di contenuti AR, che ha spinto molti player del settore tecnologico ad investire in questo campo.
@@ -66,7 +66,7 @@ Sebbene nel 2016 sia stata rimossa la dicitura *project* e sono stati commercial
 Il mancato successo è stato determinato da una parte, dalla tendenza di Google a lanciare prodotti in eterna beta e dall'altra, dal costante miglioramento degli algoritmi di visione digitale che permettevano di ottenere risultati soddisfacenti anche su smartphone con hardware standard, e quindi più a buon mercato.
 La soluzione di Google, da progetto avveniristico, si è ritrovata ad essere limitata ed acerba per il settore professional, in cui stavano emergendo soluzioni decisamente più potenti ed interessanti come *Microsoft HoloLens*[^mixed-reality](vedi fig. \ref{hololens})[@microsoft:MicrosoftHoloLens:2019], ma troppo costosa e limitante per quello consumers.
 
-![Microsoft HoloLens](figures/hololens.jpg){#hololens width=300 height=200px}
+![Microsoft HoloLens](figures/hololens.jpg){#hololens width=400 height=250px}
 
 Il mancato successo di *Tango* unito alla concorrenza di altri *SDK* per la realtà aumentata, tra cui *ARKit* di Apple[@apple:ARKitAppleDeveloper:2019], hanno convinto Google ad abbandonare completamente il progetto, trovandosi nella strana situazione di essere stata una delle prime ad investire in AR per smartphone, ma nonostante ciò essere indietro rispetto alla concorrenza.
 Le risorse investite e le conoscenze accumulate con *Tango* hanno però permesso a Google di recuperare velocemente il terreno perso, così dalle ceneri di *Tango*[@kastrenakesGoogleProjectTango2017a] nasce *ARCore*, la piattaforma AR di Google[@googlear:ARCoreGoogleDeveloper:2019].
@@ -87,7 +87,7 @@ Infatti condizione necessaria per ottenere risultati soddisfacenti è l'utilizzo
 Questa tecnologia è impiegata prevalentemente per aggiungere dei contenuti multimediali a libri o riviste(vedi fig. \ref{mbar}).
 Inoltre un impiego emergente è nel campo industriale, dove tramite opportuni modelli 3D di macchinari e impianti è possibile realizzare manuali e guide interattive.
 
-![Tipica applicazione di *marker based AR*](figures/marker_based_ar.png){#mbar width=300 height=200px}
+![Tipica applicazione di *marker based AR*](figures/marker_based_ar.png){#mbar width=400 height=250px}
 
 ### Markerless AR
 
@@ -104,7 +104,7 @@ Generalmente questo tipo di AR non opera da sola, ma in simultanea ad una delle 
 
 La maggiore applicazione di queste tecnologie si ha nella navigazione in realtà aumentata. Un esempio è la possibilità di vedere percorsi virtuali tra le strade delle città d'arte.
 
-![Tipica applicazione commerciale di *Location based AR*](figures/lbar.jpg){width=300 height=200px}
+![Tipica applicazione commerciale di *Location based AR*](figures/lbar.jpg){width=400 height=250px}
 
 [^cinema-4d]: Il concetto introdotto con *Sensorama* è usato tutt'oggi nei cinema 4D.
 
