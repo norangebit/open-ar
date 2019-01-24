@@ -4,7 +4,7 @@ Nella seconda applicazione d'esempio viene mostrato come sia possibile recuperar
 Questa funzione risulta particolarmente utile quando si deve rilasciare un'applicazione che sfrutta numerosi modelli e non si vuole appesantire eccessivamente il volume del file *APK*.
 Inoltre concede maggiore libertà allo sviluppatore in quanto è possibile aggiungere nuovi modelli, o aggiornare quelli vecchi, senza dover operare sull'applicazione, ma lavorando esclusivamente lato server.
 
-In questo caso specifico l'applicazione dovrà riconosce uno o più piani e in seguito ad un tocco dell'utente su di essi, mostrare un modello di *Andy*, la mascotte di Android.
+In questo caso specifico l'applicazione dovrà riconosce uno o più piani e in seguito ad un tocco dell'utente su di essi, mostrare un modello di *Andy*, la mascotte di Android(vedi fig. \ref{rfm}).
 
 Per quest'applicazione oltre alle configurazioni già viste in precedenza è necessario aggiungere una nuova dipendenza che include le funzioni necessarie per il fetching del modello.
 
@@ -97,5 +97,7 @@ fun buildRenderable(
 ```
 
 Infine l'aggiunta del modello renderizzato alla scena avviene mediante la medesima funzione `addTransformableNodeToScene` vista in precedenza.
+
+![Rendering di un modello recuperato a runtime](figures/rfm.png){#rfm width=225px height=400px}
 
 [^sceneform-1.6]: Sceneform 1.6.0.

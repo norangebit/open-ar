@@ -1,9 +1,13 @@
 ## Cloud anchors
 
 Un'ulteriore funzionalità messa a disposizione da ARCore sono le *Cloud Anchors* che ci permette di salvare su un server remoto le ancore a cui sono agganciati i nodi.
-Grazie a questa funzionalità è possibile salvare un'esperienza di realtà aumentata per un uso futuro o per condividerla con altri utenti.
+Grazie a questa funzionalità è possibile salvare un'esperienza di realtà aumentata per un uso futuro[^futuro] o per condividerla con altri utenti.
 
 In questo progetto verrà mostrato come sia possibile posizionare, tramite il device A, un vaso di fiori su una superficie piana, e vedere la stessa scena sul dispositivo B.
+
+![Messaggio di avvenuto upload sul server](figures/ca1.png){#ca1 width=225px height=400px}
+
+![Schermata di ripristino di un'ancora](figures/ca2.png){#ca2 width=225px height=400px}
 
 ### Configurazioni iniziali
 
@@ -159,7 +163,7 @@ private fun checkCloudAnchor(frameTime: FrameTime) {
 }
 ```
 
-Nel caso specifico in cui il processo di caricamento sia stato completato con successo viene eseguita la funzione `checkHosting` che si occupa di notificare all'utente il codice numerico associato all'ancora e di cambiare lo stato dell'applicazione da `HOSTING` a `HOSTED`.
+Nel caso specifico in cui il processo di caricamento sia stato completato con successo viene eseguita la funzione `checkHosting` che si occupa di notificare all'utente il codice numerico associato all'ancora(vedi fig. \ref{ca1}) e di cambiare lo stato dell'applicazione da `HOSTING` a `HOSTED`.
 
 ```kotlin
 private fun checkHosting() {
@@ -183,7 +187,7 @@ private fun checkHosting() {
 ### Resolving dell'ancora
 
 L'utente può ripristinare un'ancora premendo sul pulsante *resolve*.
-Il listener associato a questo evento è racchiuso nella funzione `onResolve` che a sua volta mostra all'utente un dialog in cui può inserire il codice dell'ancora da ripristinare.
+Il listener associato a questo evento è racchiuso nella funzione `onResolve` che a sua volta mostra all'utente un dialog in cui può inserire il codice dell'ancora da ripristinare(vedi fig. \ref{ca2}).
 
 ```kotlin
 fun onResolveClick(view: View) {
@@ -213,3 +217,5 @@ private fun onResolveOkPressed(dialogValue: String) {
   }
 }
 ```
+
+[^futuro]: Il ripristino non può essere troppo dilazionato nel tempo in quanto le ancore vengono conservate sul server per massimo ventiquattro ore.

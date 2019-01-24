@@ -5,7 +5,9 @@ Anche in questo caso Sceneform non ci fornisce un supporto diretto, ma a differe
 L'`ObjectAnimator` non è una classe specifica di ARCore o Sceneform, ma dell'SDK di Android che può essere usata per gestire facilmente animazioni e transizioni all'interno delle applicazioni Android.
 Grazie a questa classe e una serie di punti nello spazio, *collegati* tramite un interpolatore, saremo in grado di conferire il movimento ai nostri modelli.
 
-Per mostrare il funzionamento degli animator è stato realizzato un progetto d'esempio in grado di renderizzare un modello del sistema solare in cui i pianeti realizzano sia il modo di rotazione su se stessi, sia quello di rivoluzione intorno al sole.
+Per mostrare il funzionamento degli animator è stato realizzato un progetto d'esempio in grado di renderizzare un modello del sistema solare in cui i pianeti realizzano sia il modo di rotazione su se stessi, sia quello di rivoluzione intorno al sole(vedi fig. \ref{ss}).
+
+![Rendering del sistema solare](figures/ss.png){#ss width=400px height=225px}
 
 #### Recupero e rendering dei modelli
 

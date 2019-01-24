@@ -3,7 +3,9 @@
 Quando si ha a che fare con più nodi presenti sulla scena può risultare utile verificare se due o più di questi si sovrappongono.
 In questo progetto viene mostrato come eseguire questo controllo mediante l'API di ARCore.
 
-Per questo progetto si è utilizzata una rivisitazione dell'applicazione vista nel progetto precedente, con la differenza che l'aggiunta di un oggetto non è consentita se questo va in collisione con un altro già presente nella scena.
+Per questo progetto si è utilizzata una rivisitazione dell'applicazione vista nel progetto precedente, con la differenza che l'aggiunta di un oggetto non è consentita se questo va in collisione con un altro già presente nella scena(vedi fig. \ref{c}).
+
+![Schermata di errore dovuta ad una collisione](figures/c.png){#c width=225px height=400px}
 
 ### Rilevamento della collisione
 

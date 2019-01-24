@@ -7,8 +7,10 @@ L'SDK di Sceneform fornisce due classi per adempiere a questo compito:
 - `MaterialFactory`: consente di creare un *"materiale"*, partendo o da un colore o da una texture[^texture] definita precedentemente.
 - `MaterialShape`: consente di creare delle semplici forme geometriche come cilindri, sfere e cuboidi.
 
-Nel caso specifico è stata realizzata un'applicazione che in seguito al tocco dell'utente renderizza nella scena un oggetto dalla forma e dal colore *pseudo-casuali*.
+Nel caso specifico è stata realizzata un'applicazione che in seguito al tocco dell'utente renderizza nella scena un oggetto dalla forma e dal colore *pseudo-casuali*(vedi fig. \ref{rbm}).
 Inoltre è stato aggiunto un ulteriore elemento di interazione con l'utente, che gli consente di cliccare sull'oggetto renderizzato, al fine di cambiare la tinta di quest'ultimo.
+
+![Rendering di modelli costruiti a runtime](figures/rbm.png){#rbm width=225px height=400px}
 
 ### Interazione con l'utente
 
