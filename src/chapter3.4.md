@@ -59,7 +59,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-La funzione `addShape`, utilizzando le funzioni `buildMaterial` e `buildShape` analizzate in precedenza, si occupa dell'effettiva aggiunta dell'aggetto alla scena.
+La funzione `addShape`, utilizzando le funzioni `buildMaterial` e `buildShape` analizzate in precedenza, si occupa dell'effettiva aggiunta dell'oggetto alla scena.
 
 ```kotlin
 private fun addShape(
