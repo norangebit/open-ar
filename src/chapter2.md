@@ -4,17 +4,17 @@
 
 ### Caratteristiche principali
 
-ARCore è stata costruita intorno a tre caratteristiche principali[@googlear:FundamentalConceptsARCore:2019]:
+ARCore è stata costruita intorno a tre caratteristiche principali\cite{googlear:FundamentalConceptsARCore:2019}:
 
 - **Motion tracking**:
-  Grazie ad un processo chiamato *concurrent odometry and mapping*(COM), ARCore è in grado di capire come il telefono si posiziona rispetto all'ambiente circostante.
+  Grazie ad un processo chiamato \ac{COM}, ARCore è in grado di capire come il telefono si posiziona rispetto all'ambiente circostante.
   ARCore riesce ad estrapolare dall'immagine proveniente dalla fotocamera una serie di ***feature points***, ed usa questi punti per calcolare il proprio movimento rispetto all'ambiente.
   Queste informazioni, combinate con quelle provenienti dall'*inertial measurement unit*[^imu], permettono alla libreria di determinare la ***pose*** ovvero la posizione e l'orientamento del device.
 - **Environmental understanding**:
   ARCore ottiene continuamente nuove informazione sull'ambiente tramite i *feature points*, grazie ai quali è in grado di determinare le superfici piane(sia orizzontali che verticali) e i bordi di quest'ultime.
   Dato che le superfici piane sono determinate attraverso i *feature points*, la libreria incontra non poche difficoltà nel riconoscimento di superfici piane verticali monocromatiche come, ad esempio, i muri.
 - **Light estimation**:
-  ARCore è in grado di comprendere come la luce illumina gli oggetti reali, mettendo a disposizione del programmatore un'API per poter correggere l'immagine proveniente dalla fotocamera.
+  ARCore è in grado di comprendere come la luce illumina gli oggetti reali, mettendo a disposizione del programmatore un'\ac{API} per poter correggere l'immagine proveniente dalla fotocamera.
   Queste informazioni permettono di integrare meglio gli oggetti virtuali nella scena ed avere un maggiore foto-realismo
   
 ### Altre caratteristiche
@@ -25,7 +25,7 @@ Altri due concetti importati di ARCore sono le ***Anchor*** e i ***Trackable***.
 I punti e i piani sono oggetti speciali che implementano l'interfaccia `Trackable` e come risulta evidente dal nome, questi oggetti possono essere tracciati da ARCore nel corso del tempo.
 La possibilità di ottenere informazioni su questi oggetti è molto importante perché ci permette di aggiornare la posa di essi man mano che ARCore apprende informazione sull'ambiente esterno. 
 Per questo, quando si vuole posizionare un oggetto virtuale, è necessario definire un'*ancora* ad un trackable, così facendo ARCore è in grado di tracciare e aggiornare la posizione dell'oggetto renderizzato.
-Inoltre per ridurre lo sforzo della CPU le ancore possono essere riutilizzate o messe in pausa quando non sono più parte della scena.
+Inoltre per ridurre lo sforzo della \ac{CPU} le ancore possono essere riutilizzate o messe in pausa quando non sono più parte della scena.
   
 Risulta importante notare che ARCore non offre alcun supporto alle tecnologie di mixed reality.
 A fronte di ciò è evidente che l'unica modalità di interazione tra l'utente e gli oggetti virtuali sia lo smartphone.
@@ -36,7 +36,7 @@ Questa operazione prende il nome di *hit test*.
 
 La scelta di ARCore rispetto ad altri ambienti di sviluppo non è stata determinata da una supremazia tecnica.
 La costruzione di una rappresentazione interna dell'ambiente e il posizionamento in questo sono le caratteristiche su cui si erigono tutte le librerie di realtà aumentata markerless.
-Tant'è non è possibile notare una sostanziale differenza tra ARCore e la già citata ARKit, o l'altrettanto valida Vuforia[@vuforia:VuforiaAugmentedReality:2019].
+Tant'è non è possibile notare una sostanziale differenza tra ARCore e la già citata ARKit, o l'altrettanto valida Vuforia\cite{vuforia:VuforiaAugmentedReality:2019}.
 
 Il campo in cui ARCore eccelle rispetto alla concorrenza invece è la gestione della luce.
 Questo punto di forza, però, viene abbondantemente compensato dall'impossibilità di riconoscere un oggetto reale[^image-recognition](sia esso statico che dinamico) dato un modello 3D.
@@ -66,13 +66,13 @@ Con queste ultime è possibile appoggiarsi ad un motore grafico per la gestione 
 Per quanto i vantaggi di queste soluzioni siano innegabili, bisogna considerare che facendo ricorso ad esse si sta introducendo un ulteriore strato di software nel processo di sviluppo;
 software distribuito tramite licenze proprietarie che comportano costi di utilizzo.
 
-Oltre alle soluzioni elencate in precedenza, per lo sviluppo in ambiente Android, Google mette a disposizione Sceneform[@googlear:SceneformSDKAndroid:2019], un framework per la gestione del rendering di oggetti 3D, ottimizzato per dispositivi mobili che permette di creare velocemente applicazioni in AR sfruttando Java.
+Oltre alle soluzioni elencate in precedenza, per lo sviluppo in ambiente Android, Google mette a disposizione Sceneform\cite{googlear:SceneformSDKAndroid:2019}, un framework per la gestione del rendering di oggetti 3D, ottimizzato per dispositivi mobili che permette di creare velocemente applicazioni in AR sfruttando Java.
 Inoltre essendo pensato specificamente per Android e ARCore offre una serie di ulteriori vantaggi, come la gestione del ciclo di vita dell'activity o la gestione automatica delle ombre.
 
 Per lo sviluppo delle applicazioni di esempio si è scelto di fare affidamento proprio su quest'ultima  soluzione, in quanto offre un ottimo trade-off tra facilità di accesso e potenzialità.
 Inoltre vista la natura open source di Sceneform non si viene meno all'intento della tesi di mostrare le possibilità offerte da tecnologie aperte nel campo dell'AR per smartphone.
 
 [^image-recognition]: Google ha preferito relegare il riconoscimento di oggetti ad altre sue librerie  di deep learning.
-[^imu]: Anche nota con l'acronimo di IMU è un dispositivo elettronico che misura, mediante l'accelerometro, il giroscopio e là dove presente il magnetometro, la forza specifica che agisce sul dispositivo.
-[^ndk]: Acronimo di Native Development Kit, è un insieme di strumenti che permettono di scrivere parti di applicazioni Android in C o C++.
+[^imu]: L' \ac{IMU} è un dispositivo elettronico che misura, mediante l'accelerometro, il giroscopio e là dove presente il magnetometro, la forza specifica che agisce sul dispositivo.
+[^ndk]: Il \ac{NDK} è un insieme di strumenti che permettono di scrivere parti di applicazioni Android in C o C++.
 [^opengl]: Acronimo di Open Graphics Library for Embedded Systems, è una specifica che permette di avere un API condivisa su hardware differente.
