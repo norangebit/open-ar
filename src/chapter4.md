@@ -18,7 +18,7 @@ Infatti, a differenza di altre soluzioni, ARCore presenta alcune limitazioni in 
 
 Nonostante questo, non si può parlare di una vera e propria lacuna, ma più di una scelta progettuale.
 Google ha preferito delegare il riconoscimento di pattern alle altre, e numerose, soluzioni offerte da essa stessa.
-Infatti tramite la libreria open source TensorFlow[@googlebrain:TensorFlow:2019] o le soluzioni in cloud, come il machine learning kit di Firebase[@firebase:IntroducingMLKit:2018] è possibile adempiere perfettamente a questi compiti.
+Infatti tramite la libreria open source TensorFlow\cite{googlebrain:TensorFlow:2019} o le soluzioni in cloud, come il machine learning kit di Firebase\cite{firebase:IntroducingMLKit:2018} è possibile adempiere perfettamente a questi compiti.
 
 ### Riconoscimento delle superfici verticali
 
