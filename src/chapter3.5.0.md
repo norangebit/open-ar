@@ -14,10 +14,10 @@ L'utilizzo di oggetti animati oltre ad essere un orpello grafico diventa, in mol
 Questo è ancora più vero nello sviluppo di applicazioni AR su smartphone che, per forza di cose, hanno nell'utenza consumers lo sbocco naturale.
 Il mancato utilizzo di un'animazione potrebbe segnare in modo permanete l'esperienza utente e quindi determinare il fallimento del progetto.
 
-Non a caso uno dei problemi più discussi nell'issues tracker di Sceneform su GitHub[@googlear:Animated3DObjects:2019], è proprio la totale mancanza di supporto alle animazioni.
+Non a caso uno dei problemi più discussi nell'issues tracker di Sceneform su GitHub\cite{googlear:Animated3DObjects:2019}, è proprio la totale mancanza di supporto alle animazioni.
 Sebbene ci siano stati dei lavori in questo senso ed una prima contabilità con i modelli animati FBX sia stata aggiunta alla code base, ad oggi non è possibile utilizzare questa funzione, in quanto è in fase di testing per il solo personale interno.
 
-In attesa di un rilascio al pubblico, l'unica via percorribile è quella presentata dalla stessa Google durante un codelab[@googlear:ChromaKey:2019].
+In attesa di un rilascio al pubblico, l'unica via percorribile è quella presentata dalla stessa Google durante un codelab\cite{googlear:ChromaKey:2019}.
 La soluzione consiste nel renderizzare un schermo trasparente nel mondo reale e proiettare su di esso un video.
 Affinché l'*illusione* riesca è necessario usare un video che sfrutti il *chroma key*[^chroma-key], in questo modo l'integrazione con il mondo reale risulta migliore.
 Inoltre per impedire che l'utente possa guardare il retro dello schermo è consigliabile rendere quest'ultimo solidale con l'utente.
