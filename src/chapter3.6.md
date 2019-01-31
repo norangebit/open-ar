@@ -163,7 +163,7 @@ private fun checkCloudAnchor(frameTime: FrameTime) {
 }
 ```
 
-Nel caso specifico in cui il processo di caricamento sia stato completato con successo viene eseguita la funzione `checkHosting` che si occupa di notificare all'utente il codice numerico associato all'ancora(vedi fig. \ref{ca1}) e di cambiare lo stato dell'applicazione da `HOSTING` a `HOSTED`.
+Nel caso specifico in cui il processo di caricamento sia stato completato con successo viene eseguita la funzione `checkHosting` che si occupa di notificare all'utente il codice numerico associato all'ancora (vedi fig. \ref{ca1}) e di cambiare lo stato dell'applicazione da `HOSTING` a `HOSTED`.
 
 ```kotlin
 private fun checkHosting() {
@@ -187,7 +187,7 @@ private fun checkHosting() {
 ### Resolving dell'ancora
 
 L'utente può ripristinare un'ancora premendo sul pulsante *resolve*.
-Il listener associato a questo evento è racchiuso nella funzione `onResolve` che a sua volta mostra all'utente un dialog in cui può inserire il codice dell'ancora da ripristinare(vedi fig. \ref{ca2}).
+Il listener associato a questo evento è racchiuso nella funzione `onResolve` che a sua volta mostra all'utente un dialog in cui può inserire il codice dell'ancora da ripristinare (vedi fig. \ref{ca2}).
 
 ```kotlin
 fun onResolveClick(view: View) {

@@ -11,7 +11,7 @@ ARCore è stata costruita intorno a tre caratteristiche principali\cite{googlear
   ARCore riesce ad estrapolare dall'immagine proveniente dalla fotocamera una serie di ***feature points***, ed usa questi punti per calcolare il proprio movimento rispetto all'ambiente.
   Queste informazioni, combinate con quelle provenienti dall'*inertial measurement unit*[^imu], permettono alla libreria di determinare la ***pose*** ovvero la posizione e l'orientamento del device.
 - **Environmental understanding**:
-  ARCore ottiene continuamente nuove informazione sull'ambiente tramite i *feature points*, grazie ai quali è in grado di determinare le superfici piane(sia orizzontali che verticali) e i bordi di quest'ultime.
+  ARCore ottiene continuamente nuove informazione sull'ambiente tramite i *feature points*, grazie ai quali è in grado di determinare le superfici piane (sia orizzontali che verticali) e i bordi di quest'ultime.
   Dato che le superfici piane sono determinate attraverso i *feature points*, la libreria incontra non poche difficoltà nel riconoscimento di superfici piane verticali monocromatiche come, ad esempio, i muri.
 - **Light estimation**:
   ARCore è in grado di comprendere come la luce illumina gli oggetti reali, mettendo a disposizione del programmatore un'\ac{API} per poter correggere l'immagine proveniente dalla fotocamera.
@@ -35,11 +35,11 @@ Questa operazione prende il nome di *hit test*.
 ### Perché ARCore
 
 La scelta di ARCore rispetto ad altri ambienti di sviluppo non è stata determinata da una supremazia tecnica.
-La costruzione di una rappresentazione interna dell'ambiente e il posizionamento in questo sono le caratteristiche su cui si erigono tutte le librerie di realtà aumentata markerless.
-Tant'è non è possibile notare una sostanziale differenza tra ARCore e la già citata ARKit, o l'altrettanto valida Vuforia\cite{vuforia:VuforiaAugmentedReality:2019}.
+La costruzione di una rappresentazione interna dell'ambiente e il posizionamento in questo sono le caratteristiche comuni a molte librerie di realtà aumentata markerless.
+Infatti non è possibile notare una sostanziale differenza tra ARCore e la già citata ARKit, o l'altrettanto valida Vuforia\cite{vuforia:VuforiaAugmentedReality:2019}.
 
 Il campo in cui ARCore eccelle rispetto alla concorrenza invece è la gestione della luce.
-Questo punto di forza, però, viene abbondantemente compensato dall'impossibilità di riconoscere un oggetto reale[^image-recognition](sia esso statico che dinamico) dato un modello 3D.
+Questo punto di forza, però, viene abbondantemente compensato dall'impossibilità di riconoscere un oggetto reale[^image-recognition] (sia esso statico che dinamico) dato un modello 3D.
 Funzione disponibile sia su Vuforia, sia, dalla versione 2.0, su ARKit.
 
 La prima ragione per cui si è scelto di approfondire lo studio di ARCore è la sua natura multi piattaforma, con buona parte dell'API condivisa dai due maggiori sistemi operativi mobili.

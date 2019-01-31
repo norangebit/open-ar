@@ -2,7 +2,7 @@
 
 Per poter realizzare delle applicazioni mediante ARCore e Sceneform sono necessarie una serie di configurazioni iniziali.
 
-Requisito necessario al funzionamento di ARCore è una versione di Android uguale o superiore ad Android 7.0 Nougat(API level 24).
+Requisito necessario al funzionamento di ARCore è una versione di Android uguale o superiore ad Android 7.0 Nougat (API level 24).
 Inoltre se si sta lavorando su un progetto con API level minore di 26 è necessario esplicitare il supporto a Java 8 andando a modificare file `app/build.gradle`.
 
 ```gradle

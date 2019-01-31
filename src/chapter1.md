@@ -13,7 +13,7 @@ Volendo elaborare una definizione di questi concetti, usando un paragone cinemat
 Invece in *Iron Man*\cite{favreau:IronMan:2008} quando *Tony Stark* è in volo e gli vengono mostrate a video informazioni aggiuntive sta usando l'AR, mentre quando interagisce con gli ologrammi sta usando tecnologie di mixed reality.
 
 Per una definizione più accurata possiamo ricorrere a quella elaborata nel 1994 da *Paul Milgram* e da alcuni suoi colleghi, che introducono il concetto di ***reality-virtuality continuum***\cite{milgram:AugmentedRealityClass:1994}.
-Nel loro lavoro hanno definito un segmento(vedi fig. \ref{rvc}) che ha ai propri estremi, da un lato l'ambiente reale, quello in cui viviamo, e dall'altro quello virtuale, completamente generato al computer. 
+Nel loro lavoro hanno definito un segmento (vedi fig. \ref{rvc}) che ha ai propri estremi, da un lato l'ambiente reale, quello in cui viviamo, e dall'altro quello virtuale, completamente generato al computer. 
 Esattamente a metà strada tra essi risiede la realtà mista, dove gli oggetti reali e virtuali convivono ed hanno pari valenza.
 
 Inoltre hanno definito due stati intermedi.
@@ -21,7 +21,7 @@ Inoltre hanno definito due stati intermedi.
 - ***\ac{AV}***:
   Stato in cui alcuni elementi reali entrano in contatto con un mondo totalmente generato al computer.
   Sebbene il termine AV sia quello meno conosciuto tra quelli citati, probabilmente tutti noi ne abbiamo avuto esperienza diretta.
-  Basti pensare a tecnologie come la *Nintendo Wii*, al *Kinect*, o ai più moderni giochi per smartphone basati su giroscopio e accelerometro, in cui il movimento(reale) del giocatore va ad influenzare il gioco.
+  Basti pensare a tecnologie come la *Nintendo Wii*, al *Kinect*, o ai più moderni giochi per smartphone basati su giroscopio e accelerometro, in cui il movimento (reale) del giocatore va ad influenzare il gioco.
   
 - ***Augmented Reality***:
   Stato in cui alcuni elementi virtuali coesistono nel mondo reale, andando ad ampliarne i confini.
@@ -35,7 +35,7 @@ Obiettivo di questa macchina era estendere l'esperienza audio-visiva del cinema 
 Durante la visione lo spettatore veniva immerso nell'azione grazie ad una visone 3D e all'audio stereofonico, inoltre poteva percepire il vento, le vibrazioni, generate tramite l'inclinazione della macchina, e addirittura gli odori.
 Nonostante le potenzialità della macchina[^cinema-4d], per mancanza di investitori, *Heilig* fu costretto ad abbandonare il suo progetto. 
 
-Una prima applicazione di AR *moderna* invece la troviamo nel 1968 quando *Ivan Sutherland* costruisce il primo visore(vedi fig. \ref{sutherland}) in grado di aggiungere elementi generati dal computer alla visione umana\cite{sutherland:HeadmountedThreedimensionalDisplay:1968}.
+Una prima applicazione di AR *moderna* invece la troviamo nel 1968 quando *Ivan Sutherland* costruisce il primo visore (vedi fig. \ref{sutherland}) in grado di aggiungere elementi generati dal computer alla visione umana\cite{sutherland:HeadmountedThreedimensionalDisplay:1968}.
 Mentre per il battesimo si dovrà attendere il 1990 quanto *Tom Caudell* introduce per la prima volta il termine *augmented reality*.
 
 ![Vista frontale del visore di Sutherland](figures/headmounted2.jpg){#sutherland width=400 height=250px}
@@ -48,8 +48,8 @@ A partire dalla fine degli anni 90 le tecnologie AR hanno trovato sempre maggior
 Infatti è proprio a cavallo tra secondo e terzo millennio, che per la prima volta, durante una partita di \ac{NFL}, la linea gialla del *primo down* viene generata da un computer.
 
 Negli ultimi anni il fiorente progresso tecnologico ha consentito la diffusione sempre maggiore di apparecchi che permettono di fondere elementi virtuali con la realtà che li circonda.
-Uno dei prodotti più riusciti sono senza dubbio i *Google Glass*(vedi fig. \ref{googleglass})\cite{x:Glass:2019}, presentati al grande pubblico durante il Google I/O del 2013, hanno la forma di comuni occhiali, ma con l'aggiunta di un'appendice che racchiude una fotocamera e un prisma usato per ottenere un *head-up display*.
-L'interazione può avvenire sia tramite un touchpad(in grado di riprodurre audio mediante conduzione ossea[^conduzione-ossea]) sia mediante comandi vocali.
+Uno dei prodotti più riusciti sono senza dubbio i *Google Glass* (vedi fig. \ref{googleglass})\cite{x:Glass:2019}, presentati al grande pubblico durante il Google I/O del 2013, hanno la forma di comuni occhiali, ma con l'aggiunta di un'appendice che racchiude una fotocamera e un prisma usato per ottenere un *head-up display*.
+L'interazione può avvenire sia tramite un touchpad (in grado di riprodurre audio mediante conduzione ossea[^conduzione-ossea]) sia mediante comandi vocali.
 Grazie a quest'ultima caratteristica è possibile avere un'esperienza d'uso *hand-free* che li ha resi particolarmente utili in campo industriale e medico.
 
 ![Google Glass Enterprise Edition](figures/google_glass.jpeg){#googleglass width=400 height=250px}
@@ -64,7 +64,7 @@ I *Tango devices* avevano la forma e le funzionalità di un normale smartphone, 
 Sebbene nel 2016 sia stata rimossa la dicitura *project* e sono stati commercializzati alcuni dispositivi di Lenovo e Asus, *Tango* non ha mai avuto grande successo né tra i produttori, né tra i consumatori.
 
 Il mancato successo è stato determinato da una parte, dalla tendenza di Google a lanciare prodotti in eterna beta e dall'altra, dal costante miglioramento degli algoritmi di visione digitale che permettevano di ottenere risultati soddisfacenti anche su smartphone con hardware standard, e quindi più a buon mercato.
-La soluzione di Google, da progetto avveniristico, si è ritrovata ad essere limitata ed acerba per il settore professional, in cui stavano emergendo soluzioni decisamente più potenti ed interessanti come *Microsoft HoloLens*[^mixed-reality](vedi fig. \ref{hololens})\cite{microsoft:MicrosoftHoloLens:2019}, ma troppo costosa e limitante per quello consumers.
+La soluzione di Google, da progetto avveniristico, si è ritrovata ad essere limitata ed acerba per il settore professional, in cui stavano emergendo soluzioni decisamente più potenti ed interessanti come *Microsoft HoloLens*[^mixed-reality] (vedi fig. \ref{hololens})\cite{microsoft:MicrosoftHoloLens:2019}, ma troppo costosa e limitante per quello consumers.
 
 ![Microsoft HoloLens](figures/hololens.jpg){#hololens width=400 height=250px}
 
@@ -84,7 +84,7 @@ Questo tipo di AR oltre a riconoscere il pattern deve essere in grado anche di c
 L'efficacia oltre a dipendere dalla libreria utilizzata dipende anche dal dispositivo in uso e dal tipo di marker utilizzato.
 Infatti condizione necessaria per ottenere risultati soddisfacenti è l'utilizzo di immagini ricche di punti caratteristici o, nel caso di riconoscimento di oggetti tridimensionali, di modelli molto dettagliati.
 
-Questa tecnologia è impiegata prevalentemente per aggiungere dei contenuti multimediali a libri o riviste(vedi fig. \ref{mbar}).
+Questa tecnologia è impiegata prevalentemente per aggiungere dei contenuti multimediali a libri o riviste (vedi fig. \ref{mbar}).
 Inoltre un impiego emergente è nel campo industriale, dove tramite opportuni modelli 3D di macchinari e impianti è possibile realizzare manuali e guide interattive.
 
 ![Tipica applicazione di *marker based AR*](figures/marker_based_ar.png){#mbar width=400 height=250px}
@@ -92,14 +92,14 @@ Inoltre un impiego emergente è nel campo industriale, dove tramite opportuni mo
 ### Markerless AR
 
 L'AR markerless, realizzata mediante degli algoritmi di tipo \ac{SLAM}, è il modo più efficace per renderizzare oggetti virtuali nel mondo reale.
-Con questa soluzione non è necessario fornire all'algoritmo informazioni di base per il riconoscimento, infatti riesce a capire(*Localization*) e ricordare(*mapping*) ambienti su cui non ha altre informazioni, se non quelle catturate in real-time dai sensori.
+Con questa soluzione non è necessario fornire all'algoritmo informazioni di base per il riconoscimento, infatti riesce a capire (*Localization*) e ricordare (*mapping*) ambienti su cui non ha altre informazioni, se non quelle catturate in real-time dai sensori.
 
 Le maggiori applicazioni di questa tecnologia si hanno nel campo commerciale, basti pensare alla possibilità di provare un mobile o un quadro nel salotto di casa.
 Altro campo in cui hanno riscosso notevole successo è quello ludico e ricreativo.
 
 ### Location based AR
 
-La location based AR, effettua il riconoscimento dell'ambiente mediante sensori di posizionamento, sia out-door(es. \ac{GPS}), sia in-door(es. Beacon Bluetooth[^beacon]).
+La location based AR, effettua il riconoscimento dell'ambiente mediante sensori di posizionamento, sia out-door (es. \ac{GPS}), sia in-door (es. Beacon Bluetooth[^beacon]).
 Generalmente questo tipo di AR non opera da sola, ma in simultanea ad una delle due tecnologie sopra citate.
 
 La maggiore applicazione di queste tecnologie si ha nella navigazione in realtà aumentata. Un esempio è la possibilità di vedere percorsi virtuali tra le strade delle città d'arte.
@@ -110,7 +110,7 @@ La maggiore applicazione di queste tecnologie si ha nella navigazione in realtà
 
 [^olfactory]: Si è soliti associare l'AR principalmente a contenuti audio-video, ma in realtà è un settore che comprende tutti e cinque i sensi. Un'ipotetica tecnologia, che dato in input un piatto, riesce a farci percepite il sapore e l'odore andrebbe ascritta comunque al campo dell'AR.
 
-[^destructive]: Anche se meno conosciuta, la branca *de-costruttiva*, si pone l'obiettivo di rimuovere del contenuto dal mondo reale. Una delle applicazioni più interessanti, sebbene ancora in fase sperimentale, è la realizzazione di un AD blocker per il mondo reale \cite{vanhemert:ARExperimentThat:2015}. L'AR de-costruttiva resta ad oggi ancora marginale, sia per una carenza di idee di applicazione, sia perché espone ancora di più l'utente ai pericoli dell'AR che già hanno portato a dei decessi. Mediaticamente più interessanti sono state le morti ascrivibili a *Pokémon GO* \cite{pokemongodeathtracker:PokemonGODeath:2019}.
+[^destructive]: Anche se meno conosciuta, la branca *de-costruttiva*, si pone l'obiettivo di rimuovere del contenuto dal mondo reale. Una delle applicazioni più interessanti, sebbene ancora in fase sperimentale, è la realizzazione di un AD blocker per il mondo reale \cite{vanhemert:ARExperimentThat:2015}. L'AR de-costruttiva resta ad oggi ancora marginale, sia per una carenza di idee di applicazione, sia perché espone, più di quanto non succeda con l'AR costruttiva, l'utente ai pericoli dell'AR che già hanno portato a dei decessi. Mediaticamente più interessanti sono state le morti ascrivibili a *Pokémon GO* \cite{pokemongodeathtracker:PokemonGODeath:2019}.
 
 [^mixed-reality]: Sebbene HoloLens sia un visore per la mixed reality, possiamo annoverarlo anche tra i dispositivi AR in quanto la realtà aumentata è una tecnologia abilitate per l'MR.
 
@@ -118,4 +118,4 @@ La maggiore applicazione di queste tecnologie si ha nella navigazione in realtà
 
 [^atap]: Divisione Advanced Technology And Projects di Google, precedentemente nota come Google X.
 
-[^beacon]: Trasmettitore Bluetooth in grado di trasmettere ripetutamente un codice alfanumerico univoco(\ac{UUID}) che permette al dispositivo ricevente di localizzarsi in un ambiente chiuso.
+[^beacon]: Trasmettitore Bluetooth in grado di trasmettere ripetutamente un codice alfanumerico univoco (\ac{UUID}) che permette al dispositivo ricevente di localizzarsi in un ambiente chiuso.

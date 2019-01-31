@@ -44,7 +44,7 @@ Infatti per ottenere una condivisione trasparente all'utente, sono richiesti ser
 Un'altra limitazione emersa prepotentemente durante lo sviluppo è l'impossibilità di associare listener a molti eventi d'interesse.
 
 Quasi tutti gli eventi più complicati del semplice tocco su una superficie piana non possono essere trattati direttamente, ma ci si deve appoggiare all'evento di aggiornamento della scena.
-Questa situazione, in *problemi non giocattolo*, comporta l'utilizzo eccessivo del listener e l'assegnazione ad esso di numerosi compiti eterogenei e quindi la nascita di un codice meno leggibile e manutenibile, con una conseguente maggiore propensione all'errore.
+Questa situazione, in problemi complessi, comporta l'utilizzo eccessivo del listener e l'assegnazione ad esso di numerosi compiti eterogenei e quindi la nascita di un codice meno leggibile e manutenibile, con una conseguente maggiore propensione all'errore.
 
 ## Sceneform
 

@@ -1,6 +1,6 @@
 ## Augmented images
 
-Nel primo progetto d'esempio si è affrontato un classico problema di AR marker based, ovvero il riconoscimento di un'immagine preimpostata e il conseguente sovrapponimento di un oggetto virtuale.
+Nel primo progetto d'esempio si è affrontato un classico problema di AR marker based, ovvero il riconoscimento di un'immagine preimpostata e la sovrapposizione di un oggetto virtuale.
 Nel caso specifico si vuole riconoscere una foto del pianeta terra e sostituirvi un modello tridimensionale di essa.
 
 ### Aggiunta del modello
