@@ -9,7 +9,7 @@ In questo caso specifico l'applicazione dovrà riconosce uno o più piani e in s
 Per quest'applicazione oltre alle configurazioni già viste in precedenza è necessario aggiungere una nuova dipendenza che include le funzioni necessarie per il fetching del modello.
 
 ```gradle
-  implementation 'com.google.ar.sceneform:assets:1.6.0'
+  implementation 'com.google.ar.sceneform:assets:$version'
 ```
 
 Inoltre nell'Android Manifest bisogna aggiungere il permesso per accedere alla rete.

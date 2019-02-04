@@ -19,7 +19,8 @@ android {
 Sempre nel file per il build del progetto è necessario aggiungere la dipendenza di Sceneform.
 
 ```gradle
-implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
+implementation 
+  'com.google.ar.sceneform.ux:sceneform-ux:$version'
 ```
 
 Inoltre per sfruttare al massimo le potenzialità offerte da Sceneform e ridurre al minimo il lavoro extra per la gestione delle view, si deve aggiungere il fragment di Sceneform al file di layout dell'activity principale mediante il seguente codice xml.

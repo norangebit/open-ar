@@ -1,0 +1,116 @@
+---
+author: Raffaele Mignone
+matr: 863000747
+keywords: [arcore, sceneform]
+subject: ARCore & Sceneform
+bibliography: bib.bib
+####################### 
+title: Un'analisi del toolkit ARCore per la realtà aumentata in ambiente mobile
+date: Febbraio 21, 2019
+institute: Università degli studi del Sannio
+department: Dipartimento di ingegneria
+course: Corso di Laurea in Ingegneria informatica
+academic-year: Anno accademico 2017-2018
+supervisor:
+  title: Chiar.mo Prof.
+  name: Gerardo Canfora
+####################### 
+aabstract: |
+  Analisi del tool ARCore e della libreria grafica Sceneform, al
+  fine di capire le possibilità messe a disposizione oggi da
+  soluzioni open source nell'ambito dello sviluppo di applicazioni
+  AR per dispositivi mobili.
+abstract-title: Sommario
+acknowledgments: |
+  Un ringraziamento speciale alla mia famiglia, e in particolar modo ai
+  miei genitori e a Noemi, per avermi supportato e sopportato durante
+  questi anni, soprattutto nei momenti di difficoltà.
+  
+  \smallskip
+
+  Un ringraziamento al mio relatore, il Prof. Gerardo Canfora, per la
+  sua disponibilità e per il supporto.
+
+  \smallskip
+
+  Un ringraziamento ad *André Miede* per aver realizzato il pacchetto LaTeX
+  *ClassicThesis* con cui è stato realizzato questo documento.
+  Un grazie anche a *Mike M* e *Jarlan Perez* per aver realizzato i modelli
+  utilizzati nelle varie applicazioni.
+
+  \smallskip
+
+  Dal punto di vista tecnico nessuna parte di questa tesi sarebbe stata
+  possibile senza il lavoro di centinaia di volontari sparsi in tutto
+  il mondo, che hanno contribuito ai software open source utilizzati
+  in questa tesi, tra cui, neovim, Arch Linux, git, pandoc, LaTeX, Zotero e il
+  kernel Linux.
+
+  \smallskip
+
+  Infine vorrei esprimere la più sincera gratitudine a chiunque abbia letto le
+  prime versioni di questo documento, grazie per i preziosi suggerimenti.
+acknowledgments-title: Ringraziamenti
+#######################
+copyright: |
+  Questo documento è rilasciato sotto la licenza Creative Commons
+  Attribution-Share Alike 4.0 international license.
+
+  \smallskip 
+
+  \noindent Il template per pandoc *LaTeKiSS*, usato in questa tesi,
+  è stato scritto da *norangebit* e utilizza a sua volta il package
+  *ClassicThesis* di *André Miede*.
+
+  \smallskip 
+
+  \noindent Il codice sorgente di questo documento è disponibile 
+  al seguente link \url{https://github.com/norangebit/open-ar}
+
+  \noindent La versione completa dei listati è dispolibile al
+  seguente link \url{https://github.com/norangebit/open-ar-samples}
+dedication: A Noemi e alla sua autentica bellezza
+quote: |
+  Those who would give up essential Liberty,
+  to purchase a little temporary Safety,
+  deserve neither Liberty nor Safety.
+quote-author: Benjamin Franklin
+#######################
+babel: italian
+toc: true
+toc-depth: 3
+lof: true
+logo: figures/logo.png
+#######################
+onlyused: true
+acronym-title: Acronimi
+acronym:
+  - name: API 
+    description: Application Program Interface
+  - name: AR
+    description: Augmented Reality
+  - name: AV
+    description: Augmented Virtuality
+  - name: COM
+    description: Concurrent Odometry and Mapping
+  - name: CPU
+    description: Central Processing Unit
+  - name: GPS
+    description: Global Positioning System
+  - name: IMU
+    description: Inertial Measurament Unit
+  - name: MR
+    description: Mixed Reality
+  - name: NDK
+    description: Native Development Kit
+  - name: NFL
+    description: National Football Ligue
+  - name: SDK
+    description: Software Development Kit
+  - name: SLAM
+    description: Simultaneus Localization And Mapping
+  - name: UUID
+    description: Universaly Unique Identifier
+  - name: VR
+    description: Virtual Reality
+---
