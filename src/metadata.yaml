@@ -3,7 +3,6 @@ author: Raffaele Mignone
 matr: 863000747
 keywords: [arcore, sceneform]
 subject: ARCore & Sceneform
-bibliography: bib.bib
 ####################### 
 title: Un'analisi del toolkit ARCore per la realtà aumentata in ambiente mobile
 date: Febbraio 21, 2019
@@ -15,12 +14,34 @@ supervisor:
   title: Chiar.mo Prof.
   name: Gerardo Canfora
 ####################### 
-aabstract: |
-  Analisi del tool ARCore e della libreria grafica Sceneform, al
-  fine di capire le possibilità messe a disposizione oggi da
-  soluzioni open source nell'ambito dello sviluppo di applicazioni
-  AR per dispositivi mobili.
-abstract-title: Sommario
+abstract: |
+  Con il termine realtà aumentata viene indicata una serie di tecnologie che permettono di aggiungere nuovo contenuto 
+  percettivo al mondo reale che ci circonda generato mediante l'ausilio di un calcolatore.
+
+  In un primo momento le tecnologie di AR erano veicolate mediante l'utilizzo di appositi visori e dispositivi che 
+  rendevano difficile e costoso l'accesso ad esse per il mercato consumers.
+  Tuttavia il continuo progresso tecnologico e la crescente capacità computazionale dei devices mobili ha permesso una
+  sempre maggiore diffusione di queste nuove tecnologie.
+  A fronte di ciò sono nati numerosi framework per lo sviluppo di esperienze di realtà aumentata per dispositivi mobili.
+  In questo documento si è svolta un'analisi del tool ARCore e della libreria grafica Sceneform, al fine di
+  comprendere e valutare le possibilità messe a disposizione da queste soluzioni.
+
+  \smallskip
+
+  \noindent In seguito a quest'analisi è stato possibile isolare una serie di punti a favore come:
+
+  - Licenza open source
+  - Disponibilità dell'SDK per svariati ambienti di sviluppo
+  - Ottime capacità nel riconoscimento dell'ambiente reale
+  - Esperienze di AR cross devices 
+  - Documentazione completa ed esaustiva
+
+  \noindent Ma anche degli inconvenienti più o meno limitati:
+
+  - Supporto limitato alle tecnologie di marker based
+  - Difficoltà nel riconoscere superfici piane verticali
+  - Gestione carente degli eventi di interesse
+  - Supporto quasi nullo al movimento e alle animazioni
 acknowledgments: |
   Un ringraziamento speciale alla mia famiglia, e in particolar modo ai
   miei genitori e a Noemi, per avermi supportato e sopportato durante
@@ -70,17 +91,16 @@ copyright: |
   \noindent La versione completa dei listati è dispolibile al
   seguente link \url{https://github.com/norangebit/open-ar-samples}
 dedication: A Noemi e alla sua autentica bellezza
-quote: |
-  Those who would give up essential Liberty,
-  to purchase a little temporary Safety,
-  deserve neither Liberty nor Safety.
-quote-author: Benjamin Franklin
 #######################
 babel: italian
 toc: true
 toc-depth: 3
 lof: true
 logo: figures/logo.png
+monochrome: false
+titoletto: true
+hidelinks: false
+bibliography: bib.bib
 #######################
 onlyused: true
 acronym-title: Acronimi
@@ -98,19 +118,19 @@ acronym:
   - name: GPS
     description: Global Positioning System
   - name: IMU
-    description: Inertial Measurament Unit
+    description: Inertial Measurement Unit
   - name: MR
     description: Mixed Reality
   - name: NDK
     description: Native Development Kit
   - name: NFL
-    description: National Football Ligue
+    description: National Football League
   - name: SDK
     description: Software Development Kit
   - name: SLAM
-    description: Simultaneus Localization And Mapping
+    description: Simultaneous Localization And Mapping
   - name: UUID
-    description: Universaly Unique Identifier
+    description: Universally Unique Identifier
   - name: VR
     description: Virtual Reality
 ---
