@@ -69,7 +69,7 @@ Inoltre bisogna modificare anche il file di layout affinché non utilizzi più l
 ### Cloud Anchor Helper
 
 Quando viene caricata un'ancora sul server viene associata ad essa un valore alfanumerico che ci permette di identificarla univocamente.
-Dato che il codice risulta essere molto lungo e quindi difficile da ricordare e ricopiare, si è scelto di appoggiarsi al servizio *firestore * di Firebase[@firebase:Firebase:2019] per creare una relazione uno a uno tra l'UUID e uno *short code* intero.
+Dato che il codice risulta essere molto lungo e quindi difficile da ricordare e ricopiare, si è scelto di appoggiarsi al servizio *firestore * di Firebase\cite{firebase:Firebase:2019} per creare una relazione uno a uno tra l'UUID e uno *short code* intero.
 
 Queste operazioni avvengono tramite la classe `CloudAnchorHelper` che fornisce due metodi principali `getShortCode` e `getCloudAnchorId`.
 

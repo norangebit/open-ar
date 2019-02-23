@@ -98,8 +98,9 @@ toc-depth: 3
 lof: true
 logo: figures/logo.png
 monochrome: false
-titoletto: true
 hidelinks: false
+twoside: false
+openright: true
 bibliography: bib.bib
 #######################
 onlyused: true
