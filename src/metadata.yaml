@@ -101,6 +101,8 @@ monochrome: false
 hidelinks: false
 twoside: false
 openright: true
+eulerchapternumber: true
+floatnumbering: true
 bibliography: bib.bib
 #######################
 onlyused: true
